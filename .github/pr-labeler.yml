@@ -1,0 +1,6 @@
+feature: ['feature/*', 'feat/*']
+fix: 'fix/*'
+chore: 'chore/*'
+workflow: ['ci/*']
+refactor: ['refactor/*', 'perf/*', 'revert/*']
+docs: ['document/*', 'docs/*']
