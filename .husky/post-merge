@@ -1,0 +1,31 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# retrieves the list of files that have changed 
+changed_files="$(git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD)"
+
+scan_lockfile () {
+  echo "🕵️📦 Checking package file changes..."
+  if [ -n "$changed_files" ]; then
+     if [ -n "$(echo "$changed_files" | grep -E 'yarn\.lock|package-lock\.json|pnpm-lock\.yaml|bun\.lockb')" ]; then
+      echo "🔒 Lock files have changed..."
+      # Perform  install dependencies action when lock files changed.
+      # npm run install
+      # yarn install
+      pnpm install
+      # bun install
+      exit 0
+  fi
+}
+  
+if [ -z "$changed_files" ]; then
+  echo "🤷‍♂️ No files changed"
+  exit 0
+fi
+
+scan_lockfile || (
+  echo "❌ packages changes checks failed!"
+  exit 1
+)
+
+echo "✅ No package changes found"

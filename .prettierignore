@@ -1,0 +1,15 @@
+node_modules/
+**/node_modules
+
+
+dist/
+**/dist/**
+
+.next/
+next-env.d.ts
+additional.d.ts
+**/.next/**
+**/_next/**
+*.lock
+*.log
+*yaml
