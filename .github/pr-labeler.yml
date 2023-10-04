@@ -1,6 +1,6 @@
 feature: ['feature/*', 'feat/*']
-fix: 'fix/*'
+bug: 'fix/*'
 chore: 'chore/*'
 workflow: ['ci/*']
-refactor: ['refactor/*', 'perf/*', 'revert/*']
-docs: ['document/*', 'docs/*']
+enhancement: ['refactor/*', 'perf/*', 'revert/*']
+documentation: ['document/*', 'docs/*']
