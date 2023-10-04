@@ -1,6 +1,12 @@
 {
   "extends": ["prettier", "next/core-web-vitals"],
   "rules": {
-    "no-duplicate-imports": "warn"
+    "no-duplicate-imports": "warn",
+    "no-console": [
+      "error",
+      {
+        "allow": ["warn", "error"]
+      }
+    ]
   }
 }

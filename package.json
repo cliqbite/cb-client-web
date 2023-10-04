@@ -16,6 +16,7 @@
     "release": "standard-version"
   },
   "dependencies": {
+    "appwrite": "^13.0.0",
     "next": "latest",
     "next-pwa": "^5.6.0",
     "react": "latest",
