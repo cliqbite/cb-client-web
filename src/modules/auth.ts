@@ -80,6 +80,29 @@ export class AuthService {
     }
   }
 
+  async gOAuthLogin(successLink: string, failureLink: string) {
+    try {
+      const session = this.account.createOAuth2Session(
+        'google',
+        successLink,
+        failureLink,
+      )
+      this.logger.log('gAuthLogin::', session)
+    } catch (error) {
+      this.logger.error('gAuthLogin::', error)
+    }
+  }
+
+  async gOAuthSession() {
+    try {
+      const session = await this.account.getSession('current')
+      this.logger.log('gOAuthSession::', session)
+      return session
+    } catch (error) {
+      this.logger.error('gOAuthSession::', error)
+    }
+  }
+
   async getCurrentUser() {
     try {
       const user = await this.account.get()
