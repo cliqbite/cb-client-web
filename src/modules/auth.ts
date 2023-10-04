@@ -1,5 +1,5 @@
 import Logger from '@/helpers/logger'
-import appWriteClient from '@/services/appwrite.js'
+import appWriteClient from '@/services/appwrite'
 import { Account, ID } from 'appwrite'
 
 type CreateAccount = {
@@ -15,14 +15,15 @@ type Login = {
 
 export class AuthService {
   client = appWriteClient
-  account
-  logger = new Logger('auth::')
+  account: Account
+  logger: Logger
 
   constructor() {
     this.account = new Account(this.client)
+    this.logger = new Logger('auth::')
   }
 
-  async createAccount({ email, password, name }: CreateAccount) {
+  async createEmailPassAccount({ email, password, name }: CreateAccount) {
     try {
       const userAccount = await this.account.create(
         ID.unique(),
@@ -32,28 +33,60 @@ export class AuthService {
       )
       if (userAccount) {
         // call another method
-        return this.login({ email, password })
+        return this.loginEmailPass({ email, password })
       } else {
         return userAccount
       }
     } catch (error) {
+      this.logger.error('createEmailPassAccount::', error)
+
       throw error
     }
   }
 
-  async login({ email, password }: Login) {
+  async loginEmailPass({ email, password }: Login) {
     try {
-      return await this.account.createEmailSession(email, password)
+      const session = await this.account.createEmailSession(email, password)
+      this.logger.log('loginEmailPass::', session)
+      return session
     } catch (error) {
+      this.logger.error('loginEmailPass::', error)
+      throw error
+    }
+  }
+
+  async loginMobile(phoneNumber: 'string') {
+    try {
+      const sessionToken = await this.account.createPhoneSession(
+        ID.unique(),
+        phoneNumber,
+      )
+      this.logger.log({ sessionToken })
+      return sessionToken
+    } catch (error) {
+      this.logger.error('loginMobile::error', error)
+      throw error
+    }
+  }
+
+  async verifyLoginMobile(userId: string, secret: string) {
+    try {
+      const session = await this.account.updatePhoneSession(userId, secret)
+      this.logger.log('verifyLoginMobile::', session)
+      return session
+    } catch (error) {
+      this.logger.error('verifyLoginMobile::', error)
       throw error
     }
   }
 
   async getCurrentUser() {
     try {
-      return await this.account.get()
+      const user = await this.account.get()
+      this.logger.log('getCurrentUser::', user)
+      return user
     } catch (error) {
-      this.logger.log('getCurrentUser::error', error)
+      this.logger.error('getCurrentUser::error', error)
     }
 
     return null
@@ -62,8 +95,9 @@ export class AuthService {
   async logout() {
     try {
       await this.account.deleteSessions()
+      this.logger.log('logout', this.account)
     } catch (error) {
-      this.logger.log('logout::error', error)
+      this.logger.error('logout', error)
     }
   }
 }
