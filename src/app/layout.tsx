@@ -8,6 +8,13 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'CliqBite',
   description: 'Food Order app',
+  manifest: '/manifest.webmanifest',
+  icons: { apple: '/vercel.svg' },
+  referrer: 'origin-when-cross-origin',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: 'white' },
+    { media: '(prefers-color-scheme: dark)', color: 'black' },
+  ],
 }
 
 export default function RootLayout({
