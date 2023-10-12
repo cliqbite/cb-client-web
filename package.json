@@ -16,7 +16,9 @@
     "release": "standard-version"
   },
   "dependencies": {
+    "@nextui-org/react": "^2.1.13",
     "appwrite": "^13.0.0",
+    "framer-motion": "^10.16.4",
     "next": "latest",
     "next-pwa": "^5.6.0",
     "react": "latest",

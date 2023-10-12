@@ -4,6 +4,7 @@ import GoogleAnalytics from '@/services/analytics/GoogleAnalytics'
 import { cls } from '@/helpers/utils/classnames'
 import { siteConfig } from '@/configs/site'
 import { fontSans } from '@/configs/fonts'
+import { Providers } from './providers'
 
 export const metadata: Metadata = {
   title: {
@@ -29,10 +30,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={cls(fontSans.className)}>
         <GoogleAnalytics />
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   )
