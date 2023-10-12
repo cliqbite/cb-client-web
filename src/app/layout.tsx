@@ -1,16 +1,22 @@
-import './globals.scss'
+import '@/styles/globals.scss'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import GoogleAnalytics from '@/services/analytics/GoogleAnalytics'
-
-const inter = Inter({ subsets: ['latin'] })
+import { cls } from '@/helpers/utils/classnames'
+import { siteConfig } from '@/configs/site'
+import { fontSans } from '@/configs/fonts'
 
 export const metadata: Metadata = {
-  title: 'CliqBite',
-  description: 'Food Order app',
+  title: {
+    default: siteConfig.name,
+    template: `%s - ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
   manifest: '/manifest.webmanifest',
-  icons: { apple: '/vercel.svg' },
-  referrer: 'origin-when-cross-origin',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png',
+  },
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: 'white' },
     { media: '(prefers-color-scheme: dark)', color: 'black' },
@@ -24,7 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={cls(fontSans.className)}>
         <GoogleAnalytics />
         {children}
       </body>
