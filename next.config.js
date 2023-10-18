@@ -6,22 +6,22 @@ const nextConfig = {
   ...withPWA({
     dest: 'public',
     register: true,
-    skipWaiting: true,
+    skipWaiting: true
     // disable: process.env.NODE_ENV === 'development',
   }),
   reactStrictMode: true,
   sassOptions: {
-    includePaths: [path.join(__dirname, 'src/styles')],
+    includePaths: [path.join(__dirname, 'src/styles')]
   },
   async redirects() {
     return [
       {
         source: '/',
         destination: '/splash',
-        permanent: true,
-      },
+        permanent: true
+      }
     ]
-  },
+  }
 }
 
 module.exports = nextConfig

@@ -1,4 +1,5 @@
 import { isDev } from '@/configs/environment'
+import { ConsoleType } from '@/types/console'
 
 /* eslint-disable no-console */
 class Logger {
@@ -8,11 +9,11 @@ class Logger {
     this.context = context
   }
 
-  private logToConsole(type: 'error' | 'log' | 'warn', ...args: any[]) {
+  private logToConsole(type: ConsoleType, ...args: any[]) {
     const logFunction = Function.prototype.bind.call(
       console[type],
       console,
-      this.context,
+      this.context
     )
     logFunction.apply(console, args)
   }
@@ -28,7 +29,7 @@ class Logger {
 
   log = (...args: any[]) => {
     if (isDev) {
-      this.logToConsole('log', ...args)
+      this.logToConsole('debug', ...args)
     }
   }
 

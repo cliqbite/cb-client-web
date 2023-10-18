@@ -19,14 +19,14 @@ if (packageChanged && !lockfileChanged) {
 // Always ensure we assign someone.
 if (pr.assignee === null) {
   message(
-    'Please assign someone to merge this PR, and optionally include people who should review.',
+    'Please assign someone to merge this PR, and optionally include people who should review.'
   )
 }
 
 // If it's not a branch PR
 if (pr.base.repo.full_name !== pr.head.repo.full_name) {
   message(
-    'This pull request(PR) comes from a fork. This has to be manually checked and merged.',
+    'This pull request(PR) comes from a fork. This has to be manually checked and merged.'
   )
 }
 
@@ -53,6 +53,6 @@ if (
   pr.base.ref === 'develop'
 ) {
   warn(
-    'This PR has a lot of changes. Please make sure you have a good reason to do this.',
+    'This PR has a lot of changes. Please make sure you have a good reason to do this.'
   )
 }

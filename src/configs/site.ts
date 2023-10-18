@@ -6,45 +6,45 @@ export const siteConfig = {
   navItems: [
     {
       label: 'Home',
-      href: '/',
+      href: '/'
     },
     {
       label: 'Pricing',
-      href: '/pricing',
+      href: '/pricing'
     },
     {
       label: 'Blog',
-      href: '/blog',
+      href: '/blog'
     },
     {
       label: 'About',
-      href: '/about',
-    },
+      href: '/about'
+    }
   ],
   navMenuItems: [
     {
       label: 'Profile',
-      href: '/profile',
+      href: '/profile'
     },
     {
       label: 'Dashboard',
-      href: '/dashboard',
+      href: '/dashboard'
     },
     {
       label: 'Settings',
-      href: '/settings',
+      href: '/settings'
     },
     {
       label: 'Help & Feedback',
-      href: '/help-feedback',
+      href: '/help-feedback'
     },
     {
       label: 'Logout',
-      href: '/logout',
-    },
+      href: '/logout'
+    }
   ],
   links: {
     github: 'https://github.com/nextui-org/nextui',
-    twitter: 'https://twitter.com/',
-  },
+    twitter: 'https://twitter.com/'
+  }
 }
