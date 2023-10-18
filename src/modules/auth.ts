@@ -29,7 +29,7 @@ export class AuthService {
         ID.unique(),
         email,
         password,
-        name,
+        name
       )
       if (userAccount) {
         // call another method
@@ -59,7 +59,7 @@ export class AuthService {
     try {
       const sessionToken = await this.account.createPhoneSession(
         ID.unique(),
-        phoneNumber,
+        phoneNumber
       )
       this.logger.log({ sessionToken })
       return sessionToken
@@ -85,7 +85,7 @@ export class AuthService {
       const session = this.account.createOAuth2Session(
         'google',
         successLink,
-        failureLink,
+        failureLink
       )
       this.logger.log('gAuthLogin::', session)
     } catch (error) {
