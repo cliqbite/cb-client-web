@@ -1,6 +1,6 @@
 import Logger from '@/helpers/logger'
 import appWriteClient from '@/services/appwrite'
-import { Account, ID } from 'appwrite'
+import { Account, type Client, ID } from 'appwrite'
 
 type CreateAccount = {
   email: string
@@ -8,24 +8,29 @@ type CreateAccount = {
   name: string
 }
 
-type Login = {
-  email: string
-  password: string
-}
+type Login = Omit<CreateAccount, 'name'>
 
-export class AuthService {
-  client = appWriteClient
-  account: Account
-  logger: Logger
+export class Auth {
+  private static instance: Auth
+  private static account: Account
+  private static logger: Logger
 
-  constructor() {
-    this.account = new Account(this.client)
-    this.logger = new Logger('auth::')
+  private constructor(client: Client) {
+    Auth.account = new Account(client)
+    Auth.logger = new Logger('auth::')
+  }
+
+  public static createService(client: Client): Auth {
+    if (!Auth.instance) {
+      Auth.instance = new Auth(client)
+    }
+
+    return Auth.instance
   }
 
   async createEmailPassAccount({ email, password, name }: CreateAccount) {
     try {
-      const userAccount = await this.account.create(
+      const userAccount = await Auth.account.create(
         ID.unique(),
         email,
         password,
@@ -38,7 +43,7 @@ export class AuthService {
         return userAccount
       }
     } catch (error) {
-      this.logger.error('createEmailPassAccount::', error)
+      Auth.logger.error('createEmailPassAccount::', error)
 
       throw error
     }
@@ -46,70 +51,70 @@ export class AuthService {
 
   async loginEmailPass({ email, password }: Login) {
     try {
-      const session = await this.account.createEmailSession(email, password)
-      this.logger.log('loginEmailPass::', session)
+      const session = await Auth.account.createEmailSession(email, password)
+      Auth.logger.log('loginEmailPass::', session)
       return session
     } catch (error) {
-      this.logger.error('loginEmailPass::', error)
+      Auth.logger.error('loginEmailPass::', error)
       throw error
     }
   }
 
   async loginMobile(phoneNumber: 'string') {
     try {
-      const sessionToken = await this.account.createPhoneSession(
+      const sessionToken = await Auth.account.createPhoneSession(
         ID.unique(),
         phoneNumber
       )
-      this.logger.log({ sessionToken })
+      Auth.logger.log({ sessionToken })
       return sessionToken
     } catch (error) {
-      this.logger.error('loginMobile::error', error)
+      Auth.logger.error('loginMobile::error', error)
       throw error
     }
   }
 
   async verifyLoginMobile(userId: string, secret: string) {
     try {
-      const session = await this.account.updatePhoneSession(userId, secret)
-      this.logger.log('verifyLoginMobile::', session)
+      const session = await Auth.account.updatePhoneSession(userId, secret)
+      Auth.logger.log('verifyLoginMobile::', session)
       return session
     } catch (error) {
-      this.logger.error('verifyLoginMobile::', error)
+      Auth.logger.error('verifyLoginMobile::', error)
       throw error
     }
   }
 
   async gOAuthLogin(successLink: string, failureLink: string) {
     try {
-      const session = this.account.createOAuth2Session(
+      const session = Auth.account.createOAuth2Session(
         'google',
         successLink,
         failureLink
       )
-      this.logger.log('gAuthLogin::', session)
+      Auth.logger.log('gAuthLogin::', session)
     } catch (error) {
-      this.logger.error('gAuthLogin::', error)
+      Auth.logger.error('gAuthLogin::', error)
     }
   }
 
   async gOAuthSession() {
     try {
-      const session = await this.account.getSession('current')
-      this.logger.log('gOAuthSession::', session)
+      const session = await Auth.account.getSession('current')
+      Auth.logger.log('gOAuthSession::', session)
       return session
     } catch (error) {
-      this.logger.error('gOAuthSession::', error)
+      Auth.logger.error('gOAuthSession::', error)
     }
   }
 
   async getCurrentUser() {
     try {
-      const user = await this.account.get()
-      this.logger.log('getCurrentUser::', user)
+      const user = await Auth.account.get()
+      Auth.logger.log('getCurrentUser::', user)
       return user
     } catch (error) {
-      this.logger.error('getCurrentUser::error', error)
+      Auth.logger.error('getCurrentUser::error', error)
     }
 
     return null
@@ -117,14 +122,14 @@ export class AuthService {
 
   async logout() {
     try {
-      await this.account.deleteSessions()
-      this.logger.log('logout', this.account)
+      await Auth.account.deleteSessions()
+      Auth.logger.log('logout', Auth.account)
     } catch (error) {
-      this.logger.error('logout', error)
+      Auth.logger.error('logout', error)
     }
   }
 }
 
-const authService = new AuthService()
+const authService = Auth.createService(appWriteClient)
 
 export default authService
