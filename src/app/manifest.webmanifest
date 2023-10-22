@@ -1,8 +1,8 @@
 {
   "theme_color": "#C51F2C",
-  "background_color": "#F9881F",
+  "background_color": "#C51F2C",
+  "display_override": ["fullscreen", "standalone"],
   "display": "standalone",
-  "display_override": ["window-control-overlay", "minimal-ui"],
   "scope": "/",
   "id": "/?source=pwa",
   "start_url": "/?source=pwa",
