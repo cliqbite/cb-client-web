@@ -1,8 +1,18 @@
 import env from '@/configs/environment'
+import Logger from '@/helpers/logger'
 import { Client } from 'appwrite'
 
-const client = new Client()
+let client: Client
+const logger = new Logger('service::appwrite::')
 
-client.setEndpoint(env.appwriteUrl).setProject(env.appwriteProjectId)
+export const createInstace = () => {
+  if (!client) {
+    logger.log('create:client')
+    client = new Client()
+    client.setEndpoint(env.appwriteUrl).setProject(env.appwriteProjectId)
+  }
+  logger.log('return:client')
+  return client
+}
 
-export default client
+export default createInstace()
