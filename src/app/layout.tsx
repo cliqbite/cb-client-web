@@ -33,9 +33,9 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <body className={cls(fontSans.className)}>
-        <GoogleAnalytics />
         <Providers>{children}</Providers>
         <PWAPrompt type='initiate' />
+        <GoogleAnalytics />
       </body>
     </html>
   )
