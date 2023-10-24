@@ -17,10 +17,12 @@
   },
   "dependencies": {
     "appwrite": "^13.0.0",
+    "framer-motion": "^10.16.4",
     "next": "latest",
     "next-pwa": "^5.6.0",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-hook-form": "^7.47.0"
   },
   "devDependencies": {
     "@types/node": "latest",
