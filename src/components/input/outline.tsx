@@ -1,11 +1,5 @@
 'use client'
-import {
-  type ForwardedRef,
-  type InputHTMLAttributes,
-  forwardRef,
-  type MouseEvent,
-  useState
-} from 'react'
+import { type ForwardedRef, forwardRef, useState } from 'react'
 import styles from './style.module.scss'
 import { cls } from '@/helpers/utils/classnames'
 import Input, { type InputProps } from './base'
@@ -15,14 +9,23 @@ import EyeOffSVGR from '@/assets/svg/tsx/eyeOff'
 export interface OutlineInputProps extends InputProps {
   label?: string
   hint?: string
-  wapperClassName?: string
-  outlineClassName?: string
+  wapperclassName?: string
+  outlineclassName?: string
   success?: string
-  error?: string
+  error?: string | false
+  countryCode?: string
 }
 
 export const OutlineInput = forwardRef(
   (props: OutlineInputProps, ref: ForwardedRef<HTMLInputElement>) => {
+    const {
+      wapperclassName,
+      outlineclassName,
+      error,
+      hint = '',
+      success,
+      ...rest
+    } = props
     const [isPassVisible, setPassVisible] = useState(false)
     function togglePassVisibility() {
       setPassVisible((o) => !o)
@@ -33,11 +36,11 @@ export const OutlineInput = forwardRef(
       return { state: false, visible: props?.type }
     }
     return (
-      <div className={cls(styles['outline-input'], props?.outlineClassName)}>
+      <div className={cls(styles['outline-input'], props?.outlineclassName)}>
         <div
           className={cls(
             styles['outline-input-wrapper'],
-            props?.wapperClassName
+            props?.wapperclassName
           )}
         >
           {isPaswordType().state ? (
@@ -55,13 +58,13 @@ export const OutlineInput = forwardRef(
           ) : null}
           <Input
             ref={ref}
-            {...props}
+            {...rest}
             type={isPaswordType().state ? isPaswordType().visible : props?.type}
             placeholder={props?.placeholder ?? ' '}
             className={cls(
               styles.outline,
-              props?.error && styles.error,
-              props?.success && styles.success,
+              error && styles.error,
+              success && styles.success,
               props.className
             )}
           >
@@ -72,11 +75,11 @@ export const OutlineInput = forwardRef(
         <div
           className={cls(
             styles['hints'],
-            props?.success && styles.success,
-            props?.error && styles.error
+            success && styles.success,
+            error && styles.error
           )}
         >
-          {props?.error ?? props?.success ?? props?.hint}{' '}
+          {error ?? success ?? hint}
         </div>
       </div>
     )

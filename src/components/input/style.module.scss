@@ -164,6 +164,14 @@ $color_error: rgb(255, 82, 82);
   }
 }
 
+.outline-input {
+  margin-top: 1.125em;
+
+  .hints:empty {
+    margin-bottom: 1.5em;
+  }
+}
+
 @keyframes vibrate {
   0%,
   100% {

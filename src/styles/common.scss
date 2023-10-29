@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$page-padding: 0em 0.5em;
+
+.page {
+  padding: $page-padding;
+}

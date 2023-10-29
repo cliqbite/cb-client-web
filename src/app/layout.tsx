@@ -1,4 +1,5 @@
 import '@/styles/globals.scss'
+import '@/styles/common.scss'
 import type { Metadata } from 'next'
 import GoogleAnalytics from '@/services/analytics/GoogleAnalytics'
 import { cls } from '@/helpers/utils/classnames'

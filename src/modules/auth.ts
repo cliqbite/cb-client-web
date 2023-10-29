@@ -60,7 +60,7 @@ export class Auth {
     }
   }
 
-  async loginMobile(phoneNumber: 'string') {
+  async loginMobile(phoneNumber: string) {
     try {
       const sessionToken = await Auth.account.createPhoneSession(
         ID.unique(),

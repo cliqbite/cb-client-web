@@ -20,5 +20,6 @@
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "docwriter.style": "Auto-detect",
   "prettier.useEditorConfig": true,
-  "prettier.enable": true
+  "prettier.enable": true,
+  "diffEditor.wordWrap": "on"
 }
