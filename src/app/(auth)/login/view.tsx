@@ -32,7 +32,7 @@ const View: FC<ViewProps> = ({}) => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting, isDirty }
+    formState: { errors, isSubmitting }
   } = useForm<TLoginSchema>({
     resolver: zodResolver(LoginSchema)
   })
