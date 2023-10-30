@@ -12,6 +12,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import authService from '@/modules/auth'
 import { useRouter } from 'next/navigation'
 import { ROUTE } from '@/helpers/constants/route'
+import env from '@/configs/environment'
 
 const phoneRegex = /^\d{10}$/
 
@@ -47,6 +48,13 @@ const View: FC<ViewProps> = ({}) => {
       )
   }
 
+  const gAuthHandle = async () => {
+    await authService.gOAuthLogin(
+      `${location.origin || env.hostUrl}${ROUTE.HOME}`,
+      `${location.origin || env.hostUrl}${ROUTE.LOGIN}`
+    )
+  }
+
   return (
     <section className={cls(styles['login-cta'])}>
       <h4>Get started with</h4>
@@ -71,7 +79,7 @@ const View: FC<ViewProps> = ({}) => {
         </LoginCTA>
       </form>
       <label className={styles.orLabel}>or</label>
-      <OutlineCTA className={cls(styles.cta, styles.btn)}>
+      <OutlineCTA className={cls(styles.cta, styles.btn)} onClick={gAuthHandle}>
         Continue with Google
       </OutlineCTA>
     </section>
