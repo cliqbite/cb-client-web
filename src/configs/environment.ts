@@ -7,7 +7,8 @@ const env = {
     cliqbite: process.env.NEXT_PUBLIC_APPWRITE_DATABASE_CLIQBITE_ID!
   },
   appwriteCollectionId: {
-    user: process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_USER_ID!
+    user: process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_USER_ID!,
+    canteen: process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_CANTEEN_ID!
   },
   appwriteBucketId: process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID!,
   // analytics
