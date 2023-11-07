@@ -2,6 +2,7 @@ import { createInstace } from '@/services/appwrite'
 import env from '@/configs/environment'
 import { Databases, ID, Query } from 'appwrite'
 import { NextResponse } from 'next/server'
+import { User } from '@/app/model/user'
 const client = createInstace()
 const databases = new Databases(client)
 const collectionId = env.appwriteCollectionId.user
@@ -9,7 +10,7 @@ const databaseId = env.appwriteDatabaseId.cliqbite
 
 export async function POST(req: Request) {
   if (req) {
-    let newUser = {}
+    let newUser: User
     try {
       let user = await new Response(req.body).json()
       if (!userExists(user.mobile_number)) {
@@ -20,7 +21,7 @@ export async function POST(req: Request) {
           email_id: user.email_id,
           first_name: user.first_name,
           last_name: user.last_name,
-          canteen: canteen,
+          canteen: [canteen.documents[0].$id],
           role: 'MERCHANT'
         }
         const response = await databases.createDocument(
