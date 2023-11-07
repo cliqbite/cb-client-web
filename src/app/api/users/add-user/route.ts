@@ -14,7 +14,8 @@ export async function POST(req: Request) {
     let newUser = {}
     try {
       let user = await new Response(req.body).json()
-      if (!userExists(user.mobile_number)) {
+      let existingUser = await userExists(user.mobile_number)
+      if (!existingUser) {
         if ((await isMerchant()) || (await isAdmin())) {
           const canteen = await getCanteen(user.canteen)
           newUser = {
@@ -23,10 +24,9 @@ export async function POST(req: Request) {
             email_id: user.email_id,
             first_name: user.first_name,
             last_name: user.last_name,
-            canteen: canteen,
+            canteen: [canteen.documents[0].$id],
             role: 'STAFF'
           }
-          user.canteen = canteen
           const response = await databases.createDocument(
             databaseId,
             collectionId,
