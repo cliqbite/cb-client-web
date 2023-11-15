@@ -2,11 +2,11 @@ import { createInstace } from '@/services/appwrite'
 import env from '@/configs/environment'
 import { Account, Databases, ID, Query } from 'appwrite'
 import { NextResponse } from 'next/server'
-import { User } from '@/app/model/user'
+import { User } from '@/model/user'
+import UserService from '../../../utils/services/userService'
 const client = createInstace()
 const databases = new Databases(client)
 const account = new Account(client)
-const promise = account.get()
 const collectionId = env.appwriteCollectionId.user
 const databaseId = env.appwriteDatabaseId.cliqbite
 
@@ -15,10 +15,10 @@ export async function POST(req: Request) {
     let newUser: User
     try {
       let user = await new Response(req.body).json()
-      let existingUser = await userExists(user.mobile_number)
+      let existingUser = await UserService.userExists(user.mobile_number)
       if (!existingUser) {
-        if ((await isMerchant()) || (await isAdmin())) {
-          const canteen = await getCanteen(user.canteen)
+        if ((await UserService.isMerchant()) || (await UserService.isAdmin())) {
+          const canteen = await UserService.getCanteen(user.canteen)
           newUser = {
             username: user.username,
             mobile_number: user.mobile_number,
@@ -54,47 +54,4 @@ export async function POST(req: Request) {
       return NextResponse.json({ message: 'Internal server error' })
     }
   }
-}
-
-async function userExists(mobileNumber: any) {
-  try {
-    const response = await databases.listDocuments(databaseId, collectionId, [
-      Query.equal('mobile_number', mobileNumber)
-    ])
-    return response.documents.length > 0
-  } catch (error) {}
-}
-async function isAdmin() {
-  let isAdmin = false
-  try {
-    promise.then(
-      function (response) {
-        isAdmin = response?.labels?.includes('Admin')
-      },
-      function (error) {}
-    )
-  } catch (error) {}
-  return isAdmin
-}
-async function isMerchant() {
-  let isMerchant = false
-  try {
-    promise.then(
-      function (response) {
-        isMerchant = response?.labels?.includes('Merchant')
-      },
-      function (error) {}
-    )
-  } catch (error) {}
-  return isMerchant
-}
-
-async function getCanteen(canteen: any) {
-  const canteenCollectionId = env.appwriteCollectionId.canteen
-  const response = await databases.listDocuments(
-    databaseId,
-    canteenCollectionId,
-    [Query.equal('name', canteen)]
-  )
-  return response
 }
