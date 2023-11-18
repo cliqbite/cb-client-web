@@ -6,6 +6,7 @@ import { cls } from '@/helpers/utils/classnames'
 import { siteConfig } from '@/configs/site'
 import { fontSans } from '@/configs/fonts'
 import PWAPrompt from '@/helpers/pwa'
+import Navigation from '@/components/Navigation'
 
 export const metadata: Metadata = {
   title: {
@@ -35,6 +36,7 @@ export default function RootLayout({
       <body className={cls(fontSans.className)}>
         <GoogleAnalytics />
         {children}
+        <Navigation />
         <PWAPrompt type='initiate' />
       </body>
     </html>

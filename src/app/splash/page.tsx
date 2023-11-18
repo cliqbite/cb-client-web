@@ -3,6 +3,7 @@ import styles from './page.module.scss'
 import { cls } from '@/helpers/utils/classnames'
 import { fontLogo } from '@/configs/fonts'
 import PWAPrompt from '@/helpers/pwa'
+import View from './view'
 
 export default function Splash() {
   return (
@@ -19,6 +20,7 @@ export default function Splash() {
             className={styles.logo}
           />
           <h1 className={styles.logo__title}>CliqBite</h1>
+          <View />
         </section>
       </main>
     </>

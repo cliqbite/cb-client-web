@@ -110,11 +110,27 @@ export class Auth {
 
   async getCurrentUser() {
     try {
+      if (!Auth.instance) {
+        Auth.createService(appWriteClient)
+      }
+
       const user = await Auth.account.get()
       Auth.logger.log('getCurrentUser::', user)
       return user
     } catch (error) {
       Auth.logger.error('getCurrentUser::error', error)
+    }
+
+    return null
+  }
+
+  async getSession() {
+    try {
+      const user = await Auth.account.getSession('current')
+      Auth.logger.log('getSession::', user)
+      return user
+    } catch (error) {
+      Auth.logger.error('getSession::error', error)
     }
 
     return null
