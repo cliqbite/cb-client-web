@@ -76,3 +76,18 @@
     opacity: 0;
   }
 }
+
+.btn-count {
+  &-wrapper {
+    display: grid;
+    grid-template-columns: auto 1.5em auto;
+    align-items: center;
+    justify-items: center;
+
+    .modifer {
+      width: fit-content;
+      padding: 0.25em 0.5em;
+      line-height: 1;
+    }
+  }
+}

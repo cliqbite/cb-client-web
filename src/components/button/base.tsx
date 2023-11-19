@@ -26,7 +26,7 @@ export const BaseButton = forwardRef(
 
       setTimeout(() => {
         button.removeChild(overlay)
-      }, 1000)
+      }, 750)
     }
 
     return (

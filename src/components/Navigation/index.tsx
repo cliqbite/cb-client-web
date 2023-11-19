@@ -1,35 +1,35 @@
 'use client'
 import { cls } from '@/helpers/utils/classnames'
-import Icon, { IconsList } from '../icon'
+import Icon from '../icon'
 import styles from './style.module.scss'
 import { usePathname } from 'next/navigation'
 import { log } from '@/helpers/logger'
 import Link from 'next/link'
+import { ICON } from '@/helpers/constants/icons'
 
 const B_NAV = [
   {
     id: 'home',
     label: 'Home',
-    icon: 'home',
+    icon: ICON.HOME,
     href: '/home'
   },
   {
     id: 'search',
     label: 'Search',
-    icon: 'search',
+    icon: ICON.SEARCH,
     href: '/search'
   },
   {
     id: 'cart',
-
     label: 'Cart',
-    icon: 'cart',
+    icon: ICON.CART,
     href: '/cart'
   },
   {
     id: 'profile',
     label: 'Profile',
-    icon: 'about',
+    icon: ICON.ABOUT,
     href: '/profile'
   }
 ]
@@ -53,7 +53,7 @@ export default function Navigation({ active }: NavigationProps) {
           return (
             <Link key={nav.id} href={nav.href} passHref>
               <li className={cls(_active === nav.id && styles.active)}>
-                <Icon icon={nav.icon as IconsList} id={nav.label} size={24} />
+                <Icon icon={nav.icon} id={nav.label} size={24} />
                 <label className={styles.hide} htmlFor={nav.label}>
                   {nav.label}
                 </label>

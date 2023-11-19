@@ -1,10 +1,10 @@
 import { log } from '@/helpers/logger'
 import { cls } from '@/helpers/utils/classnames'
 import styles from './page.module.scss'
-import Icon from '@/components/icon'
 import Image from 'next/image'
 import fallback16x9 from '@/assets/png/fallback16x9.png'
 import { Suspense } from 'react'
+import { BackNavigation } from '@/components/icon/back'
 
 interface FoodDetailProps {
   params: { slug: string }
@@ -16,9 +16,7 @@ export default function FoodDetail(props: FoodDetailProps) {
   return (
     <main>
       <section className={cls(styles['img-wrapper'])}>
-        <div className={styles.back}>
-          <Icon icon='back' size={24} />
-        </div>
+        <BackNavigation className={styles.back} />
         <Image
           src={fallback16x9}
           alt=''
@@ -34,7 +32,7 @@ export default function FoodDetail(props: FoodDetailProps) {
         <p>price: 100$</p>
       </section>
       <section className={cls('page', styles['recommend-wrapper'])}>
-        <Suspense fallback={<></>}></Suspense>
+        <Suspense fallback={null}></Suspense>
       </section>
     </main>
   )

@@ -1,48 +1,34 @@
-import { Fragment, type FC, type ReactNode, type SVGAttributes } from 'react'
+import { type FC, type ReactNode, type SVGAttributes } from 'react'
 import { FaSchool, FaUser, FaCartShopping } from 'react-icons/fa6'
 import { LuSearch } from 'react-icons/lu'
 import { GoHomeFill } from 'react-icons/go'
 import { IoIosArrowBack } from 'react-icons/io'
+import { AiOutlineFileUnknown } from 'react-icons/ai'
+import { ICON } from '@/helpers/constants/icons'
 
-export type IconsList =
-  | ''
-  | 'school'
-  | 'home'
-  | 'search'
-  | 'cart'
-  | 'about'
-  | 'back'
+export type IconsList = (typeof ICON)[keyof typeof ICON]
 
 interface IconType extends SVGAttributes<SVGElement> {
   children?: ReactNode
-  icon?: IconsList
+  icon: IconsList
   size?: string | number
   color?: string
   title?: string
 }
 
-export const Icon: FC<IconType> = (props) => {
-  const { icon = '', ...rest } = props
-  let Component = Fragment
+const _icons: Array<[string, IconType]> = [
+  [ICON.ABOUT, FaUser],
+  [ICON.BACK, IoIosArrowBack],
+  [ICON.CART, FaCartShopping],
+  [ICON.HOME, GoHomeFill],
+  [ICON.SCHOOL, FaSchool],
+  [ICON.SEARCH, LuSearch]
+]
 
-  if (icon === 'school') {
-    Component = FaSchool
-  }
-  if (icon === 'home') {
-    Component = GoHomeFill
-  }
-  if (icon === 'search') {
-    Component = LuSearch
-  }
-  if (icon === 'about') {
-    Component = FaUser
-  }
-  if (icon === 'cart') {
-    Component = FaCartShopping
-  }
-  if (icon === 'back') {
-    Component = IoIosArrowBack
-  }
+export const Icon: FC<IconType> = (props) => {
+  const { icon, ...rest } = props
+  const _mappedIcon = new Map<string, IconType>(_icons)
+  const Component = _mappedIcon.get(icon) ?? AiOutlineFileUnknown
 
   return <Component color='inherit' {...rest} />
 }
