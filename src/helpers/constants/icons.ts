@@ -4,5 +4,6 @@ export const ICON = {
   SEARCH: 'search',
   CART: 'cart',
   ABOUT: 'about',
-  BACK: 'back'
+  BACK: 'back',
+  LOGOUT: 'logout'
 } as const

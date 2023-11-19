@@ -1,5 +1,10 @@
+import Button from '@/components/button'
 import { OnClick } from '..'
 
 export function PWAPromtButton({ onClick }: OnClick) {
-  return <button onClick={onClick}>Install</button>
+  return (
+    <Button btn='solid' onClick={onClick}>
+      Install App
+    </Button>
+  )
 }

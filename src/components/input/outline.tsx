@@ -36,13 +36,8 @@ export const OutlineInput = forwardRef(
       return { state: false, visible: props?.type }
     }
     return (
-      <div className={cls(styles['outline-input'], props?.outlineclassName)}>
-        <div
-          className={cls(
-            styles['outline-input-wrapper'],
-            props?.wapperclassName
-          )}
-        >
+      <div className={cls(styles['outline-input'], outlineclassName)}>
+        <div className={cls(styles['outline-input-wrapper'], wapperclassName)}>
           {isPaswordType().state ? (
             isPassVisible ? (
               <EyeOffSVGR

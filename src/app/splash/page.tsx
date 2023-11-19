@@ -8,8 +8,8 @@ import View from './view'
 export default function Splash() {
   return (
     <>
-      <PWAPrompt type='banner' />
       <main className={styles.main}>
+        <PWAPrompt type='banner' />
         <section className={cls(fontLogo.className, styles.container)}>
           <Image
             src={'/images/icon-512x512.svg'}

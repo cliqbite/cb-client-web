@@ -1,10 +1,11 @@
 import { type FC, type ReactNode, type SVGAttributes } from 'react'
-import { FaSchool, FaUser, FaCartShopping } from 'react-icons/fa6'
+import { ICON } from '@/helpers/constants/icons'
+import { FaUser, FaCartShopping } from 'react-icons/fa6'
 import { LuSearch } from 'react-icons/lu'
 import { GoHomeFill } from 'react-icons/go'
-import { IoIosArrowBack } from 'react-icons/io'
+import { IoIosArrowBack, IoMdSchool } from 'react-icons/io'
 import { AiOutlineFileUnknown } from 'react-icons/ai'
-import { ICON } from '@/helpers/constants/icons'
+import { CiLogout } from 'react-icons/ci'
 
 export type IconsList = (typeof ICON)[keyof typeof ICON]
 
@@ -21,8 +22,9 @@ const _icons: Array<[string, IconType]> = [
   [ICON.BACK, IoIosArrowBack],
   [ICON.CART, FaCartShopping],
   [ICON.HOME, GoHomeFill],
-  [ICON.SCHOOL, FaSchool],
-  [ICON.SEARCH, LuSearch]
+  [ICON.SCHOOL, IoMdSchool],
+  [ICON.SEARCH, LuSearch],
+  [ICON.LOGOUT, CiLogout]
 ]
 
 export const Icon: FC<IconType> = (props) => {

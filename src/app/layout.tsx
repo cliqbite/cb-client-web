@@ -7,7 +7,7 @@ import { siteConfig } from '@/configs/site'
 import { fontSans } from '@/configs/fonts'
 import PWAPrompt from '@/helpers/pwa'
 import Navigation from '@/components/Navigation'
-import { Suspense } from 'react'
+import { Providers } from './providers'
 
 export const metadata: Metadata = {
   title: {
@@ -36,10 +36,8 @@ export default function RootLayout({
     <html lang='en'>
       <body className={cls(fontSans.className)}>
         <GoogleAnalytics />
-        {children}
-        <Suspense fallback={null}>
-          <Navigation />
-        </Suspense>
+        <Providers>{children}</Providers>
+        <Navigation />
         <PWAPrompt type='initiate' />
       </body>
     </html>

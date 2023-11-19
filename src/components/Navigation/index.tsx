@@ -41,10 +41,15 @@ interface NavigationProps {
 // Regular expression to split the pathname by "/"
 const REGEX = /\/+/
 
+const BYPASS_NAV = ['/splash']
+
 export default function Navigation({ active }: NavigationProps) {
   const pathname = usePathname()
-  log('pathname::navigation::', pathname)
   const _active = active || pathname.split(REGEX)[1]
+
+  if (BYPASS_NAV.includes(pathname)) {
+    return <></>
+  }
 
   return (
     <nav className={cls(styles.navigation)}>
