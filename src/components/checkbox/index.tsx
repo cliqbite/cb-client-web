@@ -7,6 +7,7 @@ import CheckboxIndicator from './checkboxIndicator'
 interface CheckboxContextProps {
   id: string
   isChecked: boolean
+  // eslint-disable-next-line no-unused-vars
   setIsChecked: (isChecked: boolean) => void
 }
 

@@ -3,9 +3,9 @@ import { cls } from '@/helpers/utils/classnames'
 import styles from './style.module.scss'
 import SolidButton from './solid'
 import { type MouseEvent, useState } from 'react'
-import { log } from '@/helpers/logger'
 
 type CountButtonProps = {
+  // eslint-disable-next-line no-unused-vars
   getCount?: (count: number) => void
 }
 

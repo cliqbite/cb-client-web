@@ -3,7 +3,6 @@ import { cls } from '@/helpers/utils/classnames'
 import Icon from '../icon'
 import styles from './style.module.scss'
 import { usePathname } from 'next/navigation'
-import { log } from '@/helpers/logger'
 import Link from 'next/link'
 import { ICON } from '@/helpers/constants/icons'
 

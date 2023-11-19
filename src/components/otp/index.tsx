@@ -12,6 +12,7 @@ import SingleInput from './singleInput'
 
 export interface OTPInputProps {
   length: number
+  // eslint-disable-next-line no-unused-vars
   onChangeOTP: (otp: string) => any
 
   autoFocus?: boolean

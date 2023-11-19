@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { Suspense, type FC } from 'react'
 import View from './view'
 import Header from '@/components/header'
 

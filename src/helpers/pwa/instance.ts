@@ -66,7 +66,9 @@ const constructStore = <T extends object>(initial: T) => {
     getValues: ({ filter }: { filter?: Array<keyof T> } = {}) => {
       if (filter && filter.length) {
         if (_value instanceof Object) {
+          // eslint-disable-next-line no-unused-vars
           const _obj: { [key in keyof T]: unknown } = {} as {
+            // eslint-disable-next-line no-unused-vars
             [key in keyof T]: unknown
           }
           for (const [key, value] of Object.entries(_value)) {

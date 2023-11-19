@@ -3,6 +3,7 @@ import type { FC } from 'react'
 interface LocationSelectionProps {}
 
 export const LocationSelection: FC<LocationSelectionProps> = (props) => {
+  const {} = props
   return (
     <section>
       <header>

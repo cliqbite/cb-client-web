@@ -1,10 +1,5 @@
 'use client'
-import {
-  type ForwardedRef,
-  type InputHTMLAttributes,
-  forwardRef,
-  type MouseEvent
-} from 'react'
+import { type ForwardedRef, type InputHTMLAttributes, forwardRef } from 'react'
 import styles from './style.module.scss'
 import { cls } from '@/helpers/utils/classnames'
 
