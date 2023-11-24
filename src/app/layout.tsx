@@ -8,6 +8,7 @@ import { fontSans } from '@/configs/fonts'
 import PWAPrompt from '@/helpers/pwa'
 import Navigation from '@/components/Navigation'
 import { Providers } from './providers'
+import Layout from '@/components/template'
 
 export const metadata: Metadata = {
   title: {
@@ -36,8 +37,12 @@ export default function RootLayout({
     <html lang='en'>
       <body className={cls(fontSans.className)}>
         <GoogleAnalytics />
-        <Providers>{children}</Providers>
-        <Navigation />
+        <Providers>
+          <Layout>
+            {children}
+            <Navigation />
+          </Layout>
+        </Providers>
         <PWAPrompt type='initiate' />
       </body>
     </html>

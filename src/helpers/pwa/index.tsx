@@ -3,7 +3,7 @@ import { type MouseEventHandler } from 'react'
 import { log } from '../logger'
 import { PWAPromtButton } from './components/button'
 import { PWAPromptBanner } from './components/banner'
-import { usePWA } from '@/hooks/usePWA'
+import { usePWA } from '@/helpers/hooks/usePWA'
 
 export type PWAPromptUI =
   | 'button'

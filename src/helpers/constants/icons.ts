@@ -5,5 +5,7 @@ export const ICON = {
   CART: 'cart',
   ABOUT: 'about',
   BACK: 'back',
-  LOGOUT: 'logout'
+  LOGOUT: 'logout',
+  GOOGLE: 'google',
+  VALIDATE: 'validate'
 } as const

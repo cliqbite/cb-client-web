@@ -1,7 +1,9 @@
+'use client'
 import { cls } from '@/helpers/utils/classnames'
 import styles from './style.module.scss'
 import Image from 'next/image'
-import Icon from '../icon'
+import Icon from '../ui/icon'
+import { useAccount } from '@/lib/store'
 
 type ProfileDetailProps = {
   src?: string
@@ -9,14 +11,14 @@ type ProfileDetailProps = {
 
 export default function ProfileDetail(props: ProfileDetailProps) {
   const { src } = props
-
+  const account = useAccount((state) => state.user)
   return (
     <>
       <section className={cls(styles['profile-container'])}>
         <div className={styles['img-wrapper']}>
           {src ? (
             <Image
-              src=''
+              src={src ?? ''}
               alt='profile image'
               loading='lazy'
               className={styles.img}
@@ -26,9 +28,16 @@ export default function ProfileDetail(props: ProfileDetailProps) {
           ) : (
             <Icon icon='about' size={64} />
           )}
-        </div>{' '}
-        <h3 className={styles.name}>name of user</h3>
-        <label className={styles.contact}>+91987654321</label>
+        </div>
+        <h3 className={styles.name}>{account?.name} </h3>
+        <label className={styles.contact}>
+          {account?.phone || account?.email}{' '}
+          {account?.phoneVerification || account?.emailVerification ? (
+            <Icon icon='validate' size={16} />
+          ) : (
+            <></>
+          )}
+        </label>
       </section>
     </>
   )

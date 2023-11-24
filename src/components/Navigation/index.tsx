@@ -1,6 +1,6 @@
 'use client'
 import { cls } from '@/helpers/utils/classnames'
-import Icon from '../icon'
+import Icon from '../ui/icon'
 import styles from './style.module.scss'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
@@ -40,7 +40,7 @@ interface NavigationProps {
 // Regular expression to split the pathname by "/"
 const REGEX = /\/+/
 
-const BYPASS_NAV = ['/splash']
+const BYPASS_NAV = ['/splash', '/login', '/verification', '/forgot', '/signup']
 
 export default function Navigation({ active }: NavigationProps) {
   const pathname = usePathname()

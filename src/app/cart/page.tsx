@@ -1,4 +1,4 @@
-import { BackNavigation } from '@/components/icon/back'
+import { BackNavigation } from '@/components/ui/icon/back'
 import { cls } from '@/helpers/utils/classnames'
 import styles from './page.module.scss'
 import { Suspense } from 'react'

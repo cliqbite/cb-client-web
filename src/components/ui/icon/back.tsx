@@ -1,7 +1,7 @@
 'use client'
 import { useRouter } from 'next/navigation'
 import styles from './style.module.scss'
-import Icon from '@/components/icon'
+import Icon from '@/components/ui/icon'
 import { cls } from '@/helpers/utils/classnames'
 
 type BackNavigationProps = {

@@ -18,6 +18,7 @@ export default function Splash() {
             height={192}
             object-fit='cover'
             className={styles.logo}
+            priority
           />
           <h1 className={styles.logo__title}>CliqBite</h1>
           <View />

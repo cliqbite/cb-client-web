@@ -1,8 +1,8 @@
 'use client'
 import { type FC } from 'react'
-import Input from '@/components/input/outline'
-import OutlineCTA from '@/components/button/outline'
-import LoginCTA from '@/components/button/solid'
+import Input from '@/components/ui/input/outline'
+import OutlineCTA from '@/components/ui/button/outline'
+import LoginCTA from '@/components/ui/button/solid'
 import { cls } from '@/helpers/utils/classnames'
 import styles from './page.module.scss'
 import { z } from 'zod'
@@ -13,6 +13,8 @@ import authService from '@/modules/auth'
 import { useRouter } from 'next/navigation'
 import { ROUTE } from '@/helpers/constants/route'
 import env from '@/configs/environment'
+import useAuth from '@/helpers/hooks/useAuth'
+import Icon from '@/components/ui/icon'
 
 const phoneRegex = /^\d{10}$/
 
@@ -38,6 +40,12 @@ const View: FC<ViewProps> = ({}) => {
     resolver: zodResolver(LoginSchema)
   })
 
+  const { user, isLoading } = useAuth()
+
+  if (!isLoading && user?.$id) {
+    router.replace(ROUTE.HOME)
+  }
+
   const onSubmit = async (data: TLoginSchema) => {
     const mobileNumber = `+91${data.mobile}`
     const responce = await authService.loginMobile(mobileNumber)
@@ -50,8 +58,8 @@ const View: FC<ViewProps> = ({}) => {
 
   const gAuthHandle = async () => {
     await authService.gOAuthLogin(
-      `${location.origin || env.hostUrl}${ROUTE.HOME}`,
-      `${location.origin || env.hostUrl}${ROUTE.LOGIN}`
+      `${window?.location.origin || env.hostUrl}${ROUTE.HOME}`,
+      `${window?.location.origin || env.hostUrl}${ROUTE.LOGIN}`
     )
   }
 
@@ -79,7 +87,11 @@ const View: FC<ViewProps> = ({}) => {
         </LoginCTA>
       </form>
       <label className={styles.orLabel}>or</label>
-      <OutlineCTA className={cls(styles.cta, styles.btn)} onClick={gAuthHandle}>
+      <OutlineCTA
+        className={cls(styles.cta, styles.btn, styles.google)}
+        onClick={gAuthHandle}
+      >
+        <Icon aria-label='google-icon' icon='google' size={24} />
         Continue with Google
       </OutlineCTA>
     </section>

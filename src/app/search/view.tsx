@@ -1,9 +1,9 @@
 'use client'
-import OutlineInput from '@/components/input/outline'
+import OutlineInput from '@/components/ui/input/outline'
 import { cls } from '@/helpers/utils/classnames'
 import styles from './page.module.scss'
-import Button from '@/components/button'
-import Icon from '@/components/icon'
+import Button from '@/components/ui/button'
+import Icon from '@/components/ui/icon'
 import { type MouseEvent } from 'react'
 
 export default function View() {

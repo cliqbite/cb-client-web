@@ -6,6 +6,8 @@ import { GoHomeFill } from 'react-icons/go'
 import { IoIosArrowBack, IoMdSchool } from 'react-icons/io'
 import { AiOutlineFileUnknown } from 'react-icons/ai'
 import { CiLogout } from 'react-icons/ci'
+import { FcGoogle } from 'react-icons/fc'
+import { GrValidate } from 'react-icons/gr'
 
 export type IconsList = (typeof ICON)[keyof typeof ICON]
 
@@ -24,7 +26,9 @@ const _icons: Array<[string, IconType]> = [
   [ICON.HOME, GoHomeFill],
   [ICON.SCHOOL, IoMdSchool],
   [ICON.SEARCH, LuSearch],
-  [ICON.LOGOUT, CiLogout]
+  [ICON.LOGOUT, CiLogout],
+  [ICON.GOOGLE, FcGoogle],
+  [ICON.VALIDATE, GrValidate]
 ]
 
 export const Icon: FC<IconType> = (props) => {

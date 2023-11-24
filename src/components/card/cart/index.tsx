@@ -2,7 +2,7 @@ import { cls } from '@/helpers/utils/classnames'
 import styles from './styles.module.scss'
 import fallback16x9 from '@/assets/png/fallback16x9.png'
 import Image from 'next/image'
-import CountButton from '@/components/button/count'
+import CountButton from '@/components/ui/button/count'
 
 type CartCardProps = {
   src?: string

@@ -1,5 +1,5 @@
 import { cls } from '@/helpers/utils/classnames'
-import Icon from '../icon'
+import Icon from '../ui/icon'
 import LocationSelection from '../location-selection'
 import styles from './style.module.scss'
 import PWAPrompt from '@/helpers/pwa'

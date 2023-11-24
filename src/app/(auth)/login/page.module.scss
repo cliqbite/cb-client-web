@@ -29,6 +29,12 @@
 
   .btn {
     font-size: 1em;
+    &.google {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25em;
+    }
   }
 
   .orLabel {
