@@ -1,4 +1,4 @@
-import { createInstace } from '@/services/appwrite'
+import { createInstace } from '@/client/services/appwrite'
 import env from '@/configs/environment'
 import { Account, Databases, ID, Query } from 'appwrite'
 import { NextResponse } from 'next/server'

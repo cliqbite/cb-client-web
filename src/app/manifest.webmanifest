@@ -39,7 +39,7 @@
   "shortcuts": [
     {
       "name": "Are you hungry?",
-      "short_name": "Hungry",
+      "short_name": "Hungry?",
       "description": "Order food for you hunger",
       "url": "/special?source=pwa",
       "icons": [{ "src": "/images/icon-192x192.png", "sizes": "192x192" }]

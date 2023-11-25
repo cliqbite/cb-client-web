@@ -1,10 +1,14 @@
 import '@/styles/globals.scss'
+import '@/styles/common.scss'
 import type { Metadata } from 'next'
-import GoogleAnalytics from '@/services/analytics/GoogleAnalytics'
-import { cls } from '@/helpers/utils/classnames'
+import GoogleAnalytics from '@/client/services/analytics/GoogleAnalytics'
+import { cls } from '@/common/utils/classnames'
 import { siteConfig } from '@/configs/site'
 import { fontSans } from '@/configs/fonts'
-import PWAPrompt from '@/helpers/pwa'
+import PWAPrompt from '@/client/pwa'
+import Navigation from '@/components/Navigation'
+import { Providers } from './providers'
+import Layout from '@/components/template'
 
 export const metadata: Metadata = {
   title: {
@@ -31,9 +35,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={cls(fontSans.className)}>
+      <body className={cls(fontSans.className)} suppressHydrationWarning={true}>
         <GoogleAnalytics />
-        {children}
+        <Providers>
+          <Layout>
+            {children}
+            <Navigation />
+          </Layout>
+        </Providers>
         <PWAPrompt type='initiate' />
       </body>
     </html>

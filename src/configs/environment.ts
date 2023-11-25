@@ -14,7 +14,8 @@ const env = {
   },
   appwriteBucketId: process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID!,
   // analytics
-  analyticsId: process.env.NEXT_PUBLIC_ANALYTICS_ID!
+  analyticsId: process.env.NEXT_PUBLIC_ANALYTICS_ID!,
+  appwriteApiKey: process.env.NEXT_PUBLIC_APPWRITE_API_KEY!
 }
 
 export const isDev = process.env.NODE_ENV === 'development'

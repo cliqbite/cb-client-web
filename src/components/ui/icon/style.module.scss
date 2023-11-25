@@ -1,0 +1,17 @@
+.wrapper {
+  all: unset;
+
+  color: white;
+  background-color: var(--primary);
+  width: 1.75em;
+  height: 1.75em;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+
+  cursor: pointer;
+}
