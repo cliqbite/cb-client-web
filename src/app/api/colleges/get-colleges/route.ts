@@ -2,7 +2,7 @@ import { Client, Databases } from 'appwrite'
 // import { createInstace } from '@/services/appwrite'
 // import env from '@/configs/environment'
 import { NextResponse } from 'next/server'
-import { College } from '@/model/college'
+import { College } from '@/server/model/college'
 // const client = createInstace()
 const client = new Client()
   .setEndpoint('https://cloud.appwrite.io/v1')
