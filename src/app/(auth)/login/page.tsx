@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 import View from './view'
 import styles from './page.module.scss'
-import { cls } from '@/helpers/utils/classnames'
+import { cls } from '@/common/utils/classnames'
 import Image from 'next/image'
 import logoPNG from '@/assets/png/logo.png'
 

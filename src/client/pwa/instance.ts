@@ -1,4 +1,4 @@
-import Logger from '../logger'
+import Logger from '../../common/log'
 
 const logger = new Logger('pwa::')
 

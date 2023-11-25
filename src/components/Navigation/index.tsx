@@ -1,10 +1,10 @@
 'use client'
-import { cls } from '@/helpers/utils/classnames'
+import { cls } from '@/common/utils/classnames'
 import Icon from '../ui/icon'
 import styles from './style.module.scss'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
-import { ICON } from '@/helpers/constants/icons'
+import { ICON } from '@/common/constants/icons'
 
 const B_NAV = [
   {

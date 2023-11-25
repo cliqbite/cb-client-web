@@ -1,5 +1,5 @@
 import { Databases } from 'appwrite'
-import { createInstace } from '@/services/appwrite'
+import { createInstace } from '@/client/services/appwrite'
 import env from '@/configs/environment'
 import { NextResponse } from 'next/server'
 import { User } from '@/app/model/user'

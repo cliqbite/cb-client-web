@@ -1,4 +1,4 @@
-import { User } from '@/types/account'
+import { User } from '@client/types/account'
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
 

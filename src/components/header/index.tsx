@@ -1,8 +1,8 @@
-import { cls } from '@/helpers/utils/classnames'
+import { cls } from '@/common/utils/classnames'
 import Icon from '../ui/icon'
 import LocationSelection from '../location-selection'
 import styles from './style.module.scss'
-import PWAPrompt from '@/helpers/pwa'
+import PWAPrompt from '@/client/pwa'
 
 export default function Header() {
   return (

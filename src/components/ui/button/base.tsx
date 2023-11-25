@@ -6,7 +6,7 @@ import {
   type MouseEvent
 } from 'react'
 import styles from './style.module.scss'
-import { cls } from '@/helpers/utils/classnames'
+import { cls } from '@/common/utils/classnames'
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
 

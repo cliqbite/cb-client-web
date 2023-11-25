@@ -1,5 +1,5 @@
-import Logger from '@/helpers/logger'
-import appWriteClient from '@/services/appwrite'
+import Logger from '@/common/log'
+import appWriteClient from '@/client/services/appwrite'
 import { Account, type Client, ID } from 'appwrite'
 
 type CreateAccount = {

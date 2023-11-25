@@ -1,5 +1,5 @@
 import { isDev } from '@/configs/environment'
-import { ConsoleType } from '@/types/console'
+import { ConsoleType } from '@client/types'
 
 /* eslint-disable no-console */
 class Logger {

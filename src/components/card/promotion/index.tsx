@@ -2,7 +2,7 @@
 import { useState, type FC } from 'react'
 import styles from './styles.module.scss'
 import Image from 'next/image'
-import { cls } from '@/helpers/utils/classnames'
+import { cls } from '@/common/utils/classnames'
 import fallback16x9 from '@/assets/png/fallback16x9.png'
 import promotionalImage from '@/assets/png/banner.png'
 import { useKeenSlider } from 'keen-slider/react'

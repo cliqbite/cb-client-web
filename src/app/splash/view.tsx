@@ -1,8 +1,8 @@
 'use client'
 import { useEffect, type FC } from 'react'
-import authService from '@/modules/auth'
+import authService from '@/client/modules/auth'
 import { useRouter } from 'next/navigation'
-import { ROUTE } from '@/helpers/constants/route'
+import { ROUTE } from '@/common/constants/route'
 
 const View: FC = () => {
   const router = useRouter()

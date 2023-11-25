@@ -1,5 +1,5 @@
 import env from '@/configs/environment'
-import Logger from '@/helpers/logger'
+import Logger from '@/common/log'
 import { Client } from 'appwrite'
 
 let client: Client

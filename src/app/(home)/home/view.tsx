@@ -3,10 +3,10 @@ import CardBasic from '@/components/card/basic'
 import styles from './page.module.scss'
 import CardSmall from '@/components/card/small'
 import CardPromotion from '@/components/card/promotion'
-import { cls } from '@/helpers/utils/classnames'
-import useAuth from '@/helpers/hooks/useAuth'
+import { cls } from '@/common/utils/classnames'
+import useAuth from '@/client/hooks/useAuth'
 import { useRouter } from 'next/navigation'
-import { ROUTE } from '@/helpers/constants/route'
+import { ROUTE } from '@/common/constants/route'
 import Loader from '@/components/ui/loader'
 
 const View = () => {

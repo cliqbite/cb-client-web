@@ -1,4 +1,4 @@
-import { cls } from '@/helpers/utils/classnames'
+import { cls } from '@/common/utils/classnames'
 import styles from './page.module.scss'
 import ProfileDetail from '@/components/profile'
 import LogoutButton from '@/components/Logout'

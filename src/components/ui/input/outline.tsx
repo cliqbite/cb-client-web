@@ -1,7 +1,7 @@
 'use client'
 import { type ForwardedRef, forwardRef, useState } from 'react'
 import styles from './style.module.scss'
-import { cls } from '@/helpers/utils/classnames'
+import { cls } from '@/common/utils/classnames'
 import Input, { type InputProps } from './base'
 import EyeSVGR from '@/assets/svg/tsx/eye'
 import EyeOffSVGR from '@/assets/svg/tsx/eyeOff'

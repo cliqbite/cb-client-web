@@ -1,6 +1,6 @@
 import type { FC } from 'react'
 import View from './view'
-import { cls } from '@/helpers/utils/classnames'
+import { cls } from '@/common/utils/classnames'
 import styles from './page.module.scss'
 
 interface PageProps {}

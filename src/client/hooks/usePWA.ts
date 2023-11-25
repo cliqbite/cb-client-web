@@ -1,10 +1,10 @@
 'use client'
-import Logger from '@/helpers/logger'
+import Logger from '@/common/log'
 import constructPWAStore, {
   type DeferredPrompt,
   OUTCOME,
   type Outcome
-} from '@/helpers/pwa/instance'
+} from '@/client/pwa/instance'
 import { useEffect, useState } from 'react'
 
 interface CreateStatus {

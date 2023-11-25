@@ -1,9 +1,9 @@
 'use client'
-import { cls } from '@/helpers/utils/classnames'
+import { cls } from '@/common/utils/classnames'
 import styles from './style.module.scss'
 import Image from 'next/image'
 import Icon from '../ui/icon'
-import { useAccount } from '@/lib/store'
+import { useAccount } from '@/client/store'
 
 type ProfileDetailProps = {
   src?: string

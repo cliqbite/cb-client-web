@@ -1,5 +1,5 @@
 import { memo, useRef, useLayoutEffect } from 'react'
-import usePrevious from '@/helpers/hooks/usePrevious'
+import usePrevious from '@/client/hooks/usePrevious'
 import Input, { OutlineInputProps } from '@/components/ui/input/outline'
 
 export interface SingleOTPInputProps extends OutlineInputProps {

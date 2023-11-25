@@ -1,9 +1,9 @@
 'use client'
 import { type MouseEventHandler } from 'react'
-import { log } from '../logger'
+import { log } from '../../common/log'
 import { PWAPromtButton } from './components/button'
 import { PWAPromptBanner } from './components/banner'
-import { usePWA } from '@/helpers/hooks/usePWA'
+import { usePWA } from '@/client/hooks/usePWA'
 
 export type PWAPromptUI =
   | 'button'

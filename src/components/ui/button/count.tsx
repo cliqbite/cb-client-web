@@ -1,5 +1,5 @@
 'use client'
-import { cls } from '@/helpers/utils/classnames'
+import { cls } from '@/common/utils/classnames'
 import styles from './style.module.scss'
 import SolidButton from './solid'
 import { type MouseEvent, useState } from 'react'

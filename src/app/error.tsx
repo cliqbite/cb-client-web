@@ -1,8 +1,8 @@
 'use client'
 
-import { logger } from '@/helpers/logger'
+import { logger } from '@/common/log'
 import { useEffect } from 'react'
-import { cls } from '@/helpers/utils/classnames'
+import { cls } from '@/common/utils/classnames'
 import Image from 'next/image'
 import cookieStar from '@/assets/svg/cookie-star.svg'
 import Button from '@/components/ui/button'

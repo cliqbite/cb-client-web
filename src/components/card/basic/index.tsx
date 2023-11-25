@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 import styles from './styles.module.scss'
 import Image from 'next/image'
-import { cls } from '@/helpers/utils/classnames'
+import { cls } from '@/common/utils/classnames'
 import fallback16x9 from '@/assets/png/fallback16x9.png'
 import PurseSVGR from '@/assets/svg/tsx/purse'
 

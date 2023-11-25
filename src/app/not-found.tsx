@@ -1,4 +1,4 @@
-import { cls } from '@/helpers/utils/classnames'
+import { cls } from '@/common/utils/classnames'
 import Image from 'next/image'
 import Link from 'next/link'
 import cookieStar from '@/assets/svg/cookie-star.svg'

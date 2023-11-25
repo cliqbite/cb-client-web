@@ -1,5 +1,5 @@
 import { type FC, type ReactNode, type SVGAttributes } from 'react'
-import { ICON } from '@/helpers/constants/icons'
+import { ICON } from '@/common/constants/icons'
 import { FaUser, FaCartShopping } from 'react-icons/fa6'
 import { LuSearch } from 'react-icons/lu'
 import { GoHomeFill } from 'react-icons/go'

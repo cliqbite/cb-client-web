@@ -1,5 +1,5 @@
-import { log } from '@/helpers/logger'
-import { cls } from '@/helpers/utils/classnames'
+import { log } from '@/common/log'
+import { cls } from '@/common/utils/classnames'
 import styles from './page.module.scss'
 import Image from 'next/image'
 import fallback16x9 from '@/assets/png/fallback16x9.png'

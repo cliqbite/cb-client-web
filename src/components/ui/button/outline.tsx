@@ -1,7 +1,7 @@
 'use client'
 import { type ForwardedRef, forwardRef } from 'react'
 import styles from './style.module.scss'
-import { cls } from '@/helpers/utils/classnames'
+import { cls } from '@/common/utils/classnames'
 import Button, { type ButtonProps } from './base'
 
 export const OutlineButton = forwardRef(
