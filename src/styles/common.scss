@@ -17,3 +17,40 @@ $page-padding: 0em 0.5em;
   min-height: (100svh);
   min-height: calc(100vh - 3rem);
 }
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+  margin: auto;
+  justify-content: center;
+  height: 80vh;
+  height: 80svh;
+  max-width: min(90vw, 50ch);
+
+  .error {
+    &-code {
+      font-size: 2em;
+    }
+    &-message {
+      font-size: 1.25em;
+    }
+  }
+
+  .message {
+    max-width: 28ch;
+  }
+
+  .redirect-link {
+    background-color: var(--primary, orangered);
+    color: white;
+    padding: 0.75em;
+    border-radius: 0.5em;
+    text-align: center;
+    margin-block: 0.75em;
+  }
+
+  .img {
+    margin-inline: auto;
+  }
+}

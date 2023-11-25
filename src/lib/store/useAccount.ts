@@ -1,5 +1,6 @@
 import { User } from '@/types/account'
 import { create } from 'zustand'
+import { devtools } from 'zustand/middleware'
 
 type State = {
   user: User
@@ -16,11 +17,13 @@ const INITIAL_STATE: State = {
   user: null
 }
 
-export const useAccount = create<State & Actions>((set) => ({
-  user: INITIAL_STATE.user,
-  setUser: (user: User) =>
-    set(() => ({
-      user
-    })),
-  resetUser: () => set(() => ({ user: null }))
-}))
+export const useAccount = create<State & Actions>()(
+  devtools((set) => ({
+    user: INITIAL_STATE.user,
+    setUser: (user: User) =>
+      set({
+        user
+      }),
+    resetUser: () => set({ user: null })
+  }))
+)

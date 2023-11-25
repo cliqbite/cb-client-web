@@ -35,7 +35,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={cls(fontSans.className)}>
+      <body className={cls(fontSans.className)} suppressHydrationWarning={true}>
         <GoogleAnalytics />
         <Providers>
           <Layout>
