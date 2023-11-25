@@ -13,6 +13,7 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'src/styles')]
   },
+  swcMinify: true,
   async redirects() {
     return [
       {

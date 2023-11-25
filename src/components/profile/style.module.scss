@@ -1,0 +1,40 @@
+.profile {
+  &-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0.25em;
+
+    .name {
+      text-transform: capitalize;
+      opacity: 0.9;
+    }
+
+    .contact {
+      font-size: smaller;
+      display: flex;
+      gap: 0.25em;
+      color: grey;
+    }
+  }
+}
+
+.img {
+  &-wrapper {
+    color: var(--primary);
+
+    width: 6.25em;
+    height: 6.25em;
+    border-radius: 50%;
+    background-color: rgba($color: orangered, $alpha: 0.15);
+    display: grid;
+    place-items: center;
+    place-content: center;
+    margin-bottom: 0.5em;
+
+    box-shadow:
+      rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+      rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  }
+}

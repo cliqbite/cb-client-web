@@ -1,0 +1,47 @@
+.card {
+  display: grid;
+  gap: 0.5em;
+  grid-template-columns: 6em 1fr 5em;
+
+  .img {
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 0.5em;
+
+    &-wrapper {
+      width: 6em;
+      height: 6em;
+    }
+  }
+  .detail {
+    &-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      .name {
+        text-transform: capitalize;
+      }
+
+      .option {
+        font-size: 0.75em;
+
+        &-wrapper {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+
+      .amount {
+        color: var(--primary);
+      }
+    }
+  }
+  .counter {
+    &-wrapper {
+    }
+  }
+}

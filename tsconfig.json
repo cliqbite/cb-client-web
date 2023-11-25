@@ -19,7 +19,10 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@client/*": ["./src/client/*"],
+      "@common/*": ["./src/common/*"],
+      "@server/*": ["./src/server/*"]
     }
   },
   "include": [
