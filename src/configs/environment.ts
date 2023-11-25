@@ -9,7 +9,8 @@ const env = {
   appwriteCollectionId: {
     user: process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_USER_ID!,
     canteen: process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_CANTEEN_ID!,
-    orders: process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ORDERS_ID!
+    orders: process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ORDERS_ID!,
+    colleges: process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_COLLEGES_ID!
   },
   appwriteBucketId: process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID!,
   // analytics
