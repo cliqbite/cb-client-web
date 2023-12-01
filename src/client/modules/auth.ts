@@ -98,6 +98,10 @@ export class Auth {
     }
   }
 
+  /**
+   * Deprecated
+   * @returns session
+   */
   async gOAuthSession() {
     try {
       const session = await Auth.account.getSession('current')
@@ -124,9 +128,9 @@ export class Auth {
     return null
   }
 
-  async getSession() {
+  async getSession(sessionId = 'current') {
     try {
-      const user = await Auth.account.getSession('current')
+      const user = await Auth.account.getSession(sessionId)
       Auth.logger.log('getSession::', user)
       return user
     } catch (error) {

@@ -28,9 +28,9 @@ const LoginSchema = z.object({
 
 type TLoginSchema = z.infer<typeof LoginSchema>
 
-interface ViewProps {}
+interface ViewProps { }
 
-const View: FC<ViewProps> = ({}) => {
+const View: FC<ViewProps> = ({ }) => {
   const router = useRouter()
   const {
     register,
@@ -58,8 +58,8 @@ const View: FC<ViewProps> = ({}) => {
 
   const gAuthHandle = async () => {
     await authService.gOAuthLogin(
-      `${window?.location.origin || env.hostUrl}${ROUTE.HOME}`,
-      `${window?.location.origin || env.hostUrl}${ROUTE.LOGIN}`
+      `${env.hostUrl || window?.location.origin}${ROUTE.SUCCESS}`,
+      `${env.hostUrl || window?.location.origin}${ROUTE.LOGIN}`
     )
   }
 

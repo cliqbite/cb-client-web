@@ -19,16 +19,14 @@ type Actions = {
   removeFromCart: (Item: Product) => void
 }
 
-const INITIAL_STATE: State = {
+const initialState: State = {
   cart: [],
   totalItems: 0,
   totalPrice: 0
 }
 
 export const useCart = create<State & Actions>((set, get) => ({
-  cart: INITIAL_STATE.cart,
-  totalItems: INITIAL_STATE.totalItems,
-  totalPrice: INITIAL_STATE.totalPrice,
+  ...initialState,
   addToCart: (product: Product) => {
     const cart = get().cart
     const cartItem = cart.find((item) => item.id === product.id)

@@ -37,6 +37,12 @@ body {
     sans-serif;
 }
 
+body {
+  min-height: 99vh;
+  min-height: 99dvh;
+  min-height: 99svh;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -55,4 +61,12 @@ object {
 }
 .google-map * {
   border-style: none;
+}
+
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: transparent;
 }

@@ -1,4 +1,4 @@
-import { User } from '@client/types/account'
+import { User } from '@/common/types/account.type'
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
 
@@ -13,13 +13,13 @@ type Actions = {
 }
 
 // Initialize a default state
-const INITIAL_STATE: State = {
+const initialState: State = {
   user: null
 }
 
 export const useAccount = create<State & Actions>()(
   devtools((set) => ({
-    user: INITIAL_STATE.user,
+    ...initialState,
     setUser: (user: User) =>
       set({
         user
