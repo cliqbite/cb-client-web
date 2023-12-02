@@ -8,6 +8,7 @@ import { AiOutlineFileUnknown } from 'react-icons/ai'
 import { CiLogout } from 'react-icons/ci'
 import { FcGoogle } from 'react-icons/fc'
 import { GrValidate } from 'react-icons/gr'
+import { HiMiniXMark } from 'react-icons/hi2'
 
 export type IconsList = (typeof ICON)[keyof typeof ICON]
 
@@ -28,7 +29,8 @@ const _icons: Array<[string, IconType]> = [
   [ICON.SEARCH, LuSearch],
   [ICON.LOGOUT, CiLogout],
   [ICON.GOOGLE, FcGoogle],
-  [ICON.VALIDATE, GrValidate]
+  [ICON.VALIDATE, GrValidate],
+  [ICON.CROSS, HiMiniXMark]
 ]
 
 export const Icon: FC<IconType> = (props) => {
