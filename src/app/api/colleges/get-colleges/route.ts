@@ -16,6 +16,7 @@ export async function GET() {
     if (response) {
       response.documents.forEach((el) => {
         college = {
+          id: el.$id,
           college_name: el.college_name,
           college_id: el.college_id
         }
