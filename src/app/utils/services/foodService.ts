@@ -27,11 +27,14 @@ class FoodService {
         let canteen: Canteen
         response.documents.forEach((el) => {
           college = {
+            id: el.canteen[0].$id,
             college_name: el.canteen[0].college.college_name,
             college_id: el.canteen[0].college.college_id
           }
           canteen = {
+            id: el.canteen[0].$id,
             name: el.canteen[0].name,
+            canteen_id: el.canteen[0].canteen_id,
             college: college
           }
           item = {
