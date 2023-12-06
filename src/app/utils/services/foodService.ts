@@ -2,9 +2,7 @@ import env from '@/configs/environment'
 import { Databases, Query } from 'appwrite'
 import { NextResponse } from 'next/server'
 import { createInstace } from '@/client/services/appwrite'
-import { Menu } from '@/server/model/menu'
-import { Canteen } from '@/server/model/canteen'
-import { College } from '@/server/model/college'
+import { Food } from '@/server/model/food'
 const client = createInstace()
 const databases = new Databases(client)
 const collectionIdCanteen = env.appwriteCollectionId.canteen
@@ -14,8 +12,8 @@ const databaseId = env.appwriteDatabaseId.cliqbite
 class FoodService {
   async getMenu(canteen_id: any) {
     try {
-      let items: Menu[] = []
-      let item: Menu
+      let items: Food[] = []
+      let item: Food
       const canteen_name = await this.getCanteen(canteen_id)
       const response = await databases.listDocuments(
         databaseId,
@@ -23,27 +21,16 @@ class FoodService {
         [Query.equal('canteen_id', canteen_name)]
       )
       if (response) {
-        let college: College
-        let canteen: Canteen
         response.documents.forEach((el) => {
-          college = {
-            id: el.canteen[0].$id,
-            college_name: el.canteen[0].college.college_name,
-            college_id: el.canteen[0].college.college_id
-          }
-          canteen = {
-            id: el.canteen[0].$id,
-            name: el.canteen[0].name,
-            canteen_id: el.canteen[0].canteen_id,
-            college: college
-          }
           item = {
             name: el.name,
             category: el.category,
             price: el.price,
             preparation_time: el.preparation_time,
             available: el.available,
-            canteen: canteen
+            canteen_id: el.canteen_id,
+            image_id: el.image_id,
+            food_id: el.food_id
           }
           items.push(item)
         })
@@ -57,8 +44,8 @@ class FoodService {
 
   async getOrdersByCategory(canteen_id: any, category: any) {
     try {
-      let items: Menu[] = []
-      let item: Menu
+      let items: Food[] = []
+      let item: Food
       const canteen_name = await this.getCanteen(canteen_id)
       const response = await databases.listDocuments(
         databaseId,
@@ -69,24 +56,16 @@ class FoodService {
         ]
       )
       if (response) {
-        let college: College
-        let canteen: Canteen
         response.documents.forEach((el) => {
-          college = {
-            college_name: el.canteen[0].college.college_name,
-            college_id: el.canteen[0].college.college_id
-          }
-          canteen = {
-            name: el.canteen[0].name,
-            college: college
-          }
           item = {
             name: el.name,
             category: el.category,
             price: el.price,
             preparation_time: el.preparation_time,
             available: el.available,
-            canteen: canteen
+            canteen_id: el.canteen_id,
+            image_id: el.image_id,
+            food_id: el.food_id
           }
           items.push(item)
         })
@@ -110,5 +89,5 @@ class FoodService {
     return canteen_name
   }
 }
-
-export default new FoodService()
+const foodService = new FoodService()
+export default foodService

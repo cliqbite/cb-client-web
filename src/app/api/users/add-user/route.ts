@@ -1,12 +1,11 @@
 import { createInstace } from '@/client/services/appwrite'
 import env from '@/configs/environment'
-import { Account, Databases, ID, Query } from 'appwrite'
+import { Databases, ID } from 'appwrite'
 import { NextResponse } from 'next/server'
 import { User } from '@/server/model/user'
 import UserService from '../../../utils/services/userService'
 const client = createInstace()
 const databases = new Databases(client)
-const account = new Account(client)
 const collectionId = env.appwriteCollectionId.user
 const databaseId = env.appwriteDatabaseId.cliqbite
 
@@ -39,10 +38,7 @@ export async function POST(req: Request) {
               return NextResponse.json(JSON.stringify(response)) // Success
             },
             function (error: any) {
-              return NextResponse.json(
-                { error: 'An error occurred' },
-                { status: 500 }
-              ) // Failure
+              return NextResponse.json({ error: error }, { status: 500 }) // Failure
             }
           )
         }
