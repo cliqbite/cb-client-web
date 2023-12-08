@@ -26,7 +26,6 @@ interface PWAPromptType {
 export const PWAPrompt = ({ type = 'button' }: PWAPromptType) => {
   const { isPromptEnabled, handleInstall } = usePWA()
 
-  log('pwa::isPromptEnabled', isPromptEnabled)
   if (!isPromptEnabled) return <></>
 
   if (type === 'button') return <PWAPromtButton onClick={handleInstall} />

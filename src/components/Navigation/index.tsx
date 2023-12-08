@@ -47,7 +47,8 @@ const BYPASS_NAV = [
   ROUTE.VERIFY,
   ROUTE.FORGOT,
   ROUTE.SIGNUP,
-  ROUTE.SUCCESS
+  ROUTE.SUCCESS,
+  ROUTE.MERCHANT
 ]
 
 export default function Navigation({ active }: NavigationProps) {
