@@ -33,7 +33,7 @@ const View: FC<ViewProps> = ({}) => {
         }
         const responce = await authService.verifyLoginMobile(userId, values)
         log('otp::verification::responce::', responce)
-        router.replace(ROUTE.HOME)
+        router.replace(ROUTE.SUCCESS)
       } catch (error) {
         enableAcceptOTP(true)
       }

@@ -9,6 +9,7 @@ import { CiLogout } from 'react-icons/ci'
 import { FcGoogle } from 'react-icons/fc'
 import { GrValidate } from 'react-icons/gr'
 import { HiMiniXMark } from 'react-icons/hi2'
+import { MdAutoAwesome } from 'react-icons/md'
 
 export type IconsList = (typeof ICON)[keyof typeof ICON]
 
@@ -30,7 +31,8 @@ const _icons: Array<[string, IconType]> = [
   [ICON.LOGOUT, CiLogout],
   [ICON.GOOGLE, FcGoogle],
   [ICON.VALIDATE, GrValidate],
-  [ICON.CROSS, HiMiniXMark]
+  [ICON.CROSS, HiMiniXMark],
+  [ICON.AWESOME, MdAutoAwesome]
 ]
 
 export const Icon: FC<IconType> = (props) => {

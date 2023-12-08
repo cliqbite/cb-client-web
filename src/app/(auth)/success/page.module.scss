@@ -1,0 +1,67 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75em;
+  height: 100%;
+  min-height: 85vh;
+  min-height: 90svh;
+
+  .logo {
+    margin: 2em;
+  }
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3em;
+  &-1 {
+    span {
+      display: flex;
+      gap: 0.5em;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1em;
+
+      h1 {
+        color: var(--primary);
+        font-size: 1.5em;
+      }
+
+      color: rgb(255, 196, 0);
+      .icon {
+        display: inline-block;
+      }
+    }
+
+    strong,
+    p {
+      padding-bottom: 0.75em;
+    }
+    p {
+      padding-top: 0.25em;
+      color: rgb(180, 180, 180);
+    }
+  }
+
+  .action {
+    min-width: 80vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25em;
+  }
+}

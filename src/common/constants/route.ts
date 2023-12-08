@@ -6,5 +6,7 @@ export const ROUTE = {
   SUCCESS: '/success',
 
   SPLASH: '/splash',
-  HOME: '/home'
+  HOME: '/home',
+
+  MERCHANT: '/merchant'
 }

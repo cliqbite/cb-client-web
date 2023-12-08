@@ -8,5 +8,6 @@ export const ICON = {
   LOGOUT: 'logout',
   GOOGLE: 'google',
   VALIDATE: 'validate',
-  CROSS: 'cross'
+  CROSS: 'cross',
+  AWESOME: 'awesome'
 } as const
