@@ -1,33 +1,29 @@
 import { Databases } from 'appwrite'
-import { createInstace } from '@/client/services/appwrite'
 import env from '@/configs/environment'
 import { NextResponse } from 'next/server'
-import { User } from '@/server/model/user'
+import { College } from '@/server/model/college'
+import { createInstace } from '@/client/services/appwrite'
 const client = createInstace()
 const databases = new Databases(client)
-const collectionId = env.appwriteCollectionId.user
+const collectionId = env.appwriteCollectionId.colleges
 const databaseId = env.appwriteDatabaseId.cliqbite
 
 export async function GET() {
   try {
-    let users: User[] = []
-    let user: User
+    let colleges: College[] = []
+    let college: College
     const response = await databases.listDocuments(databaseId, collectionId)
     if (response) {
       response.documents.forEach((el) => {
-        user = {
-          username: el.username,
-          mobile_number: el.mobile_number,
-          email_id: el.email_id,
-          first_name: el.first_name,
-          last_name: el.last_name,
-          canteen: el.canteen,
-          role: 'MERCHANT'
+        college = {
+          id: el.$id,
+          college_name: el.college_name,
+          college_id: el.college_id
         }
-        users.push(user)
+        colleges.push(college)
       })
     }
-    return NextResponse.json(JSON.stringify(users))
+    return NextResponse.json(colleges)
   } catch (error) {
     return NextResponse.json({ error: 'An error occurred' }, { status: 500 })
   }
