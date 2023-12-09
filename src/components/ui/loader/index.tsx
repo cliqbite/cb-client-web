@@ -11,11 +11,15 @@ import Wifi from './wifi'
 type LoaderProps = {
   children: ReactNode
   className?: string
+  isPage?: boolean
 }
 
-const Loader = ({ children, ...rest }: LoaderProps) => {
+const Loader = ({ children, isPage = true, ...rest }: LoaderProps) => {
   return (
-    <section className={cls('page', styles.page)} {...rest}>
+    <section
+      className={cls('page', styles.clr, isPage && styles.page, rest.className)}
+      {...rest}
+    >
       {children}
     </section>
   )

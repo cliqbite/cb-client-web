@@ -1,6 +1,6 @@
 'use client'
 import Input from '@/components/ui/input/outline'
-import { useState, type FC } from 'react'
+import { useState, type FC, ChangeEvent } from 'react'
 import { z } from 'zod'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -17,6 +17,7 @@ import { ROUTE } from '@/common/constants/route'
 import Select from '@/components/ui/selection/select'
 import { DateFns } from '@/common/utils/date/format'
 import Icon from '@/components/ui/icon'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 interface ViewProps {
   colleges: College[]
@@ -74,6 +75,9 @@ const View: FC<ViewProps> = ({ colleges }) => {
   const [previousStep, setPreviousStep] = useState(0)
   const [currentStep, setCurrentStep] = useState(0)
   const delta = currentStep - previousStep
+  const params = useSearchParams()
+  const router = useRouter()
+  const isFromGAuth = params.get('gauth') === '1'
 
   const {
     register,
@@ -87,6 +91,7 @@ const View: FC<ViewProps> = ({ colleges }) => {
 
   const setColleges = useCollege((state) => state.setColleges)
   const setCollege = useCollege((state) => state.setCollege)
+  const college = useCollege((state) => state.college)
   setColleges(colleges)
 
   const processForm: SubmitHandler<TFormDataSchema> = async (data) => {
@@ -131,122 +136,168 @@ const View: FC<ViewProps> = ({ colleges }) => {
     }
   }
 
+  const onOptionChangeHandler = (event: ChangeEvent<HTMLSelectElement>) => {
+    const clg = colleges.find((clg) => clg.college_name === event.target.value)
+    clg && setCollege(clg)
+  }
+
+  const updateCollegePerence = async () => {
+    const res = await Promise.all([
+      profileService.updatePrefs({
+        college
+      })
+    ])
+    log('success onsubmit::', res)
+    router.push(ROUTE.HOME)
+  }
+
   return (
     <section className={styles.step}>
-      <form onSubmit={handleSubmit(processForm)}>
-        {currentStep === 0 && (
-          <section className={cls(styles['step-1'])}>
-            <span>
-              <h1>Awesome</h1>
-              <Icon icon='awesome' size={32} className={styles.icon} />
-            </span>
-            <strong> Your are successfully logged-in</strong>
-            <p>You are now part of CliqBite.</p>
+      {!isFromGAuth ? (
+        <>
+          <form onSubmit={handleSubmit(processForm)}>
+            {currentStep === 0 && (
+              <section className={cls(styles['step-1'])}>
+                <span>
+                  <h1>Awesome</h1>
+                  <Icon icon='awesome' size={32} className={styles.icon} />
+                </span>
+                <strong> Your are successfully logged-in</strong>
+                <p>You are now part of CliqBite.</p>
+              </section>
+            )}
+            {currentStep === 1 && (
+              <motion.div
+                initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+              >
+                <h2 className='text-base font-semibold leading-7 text-gray-900'>
+                  Personal Information
+                </h2>
+
+                <Input
+                  type='text'
+                  {...register('firstName')}
+                  placeholder={''}
+                  error={errors.firstName?.message}
+                  label='Name'
+                  className={styles.cta}
+                  outlineclassName={styles.cta}
+                  wapperclassName={styles.cta}
+                  autoComplete='given-name'
+                />
+                <Input
+                  {...register('lastName')}
+                  placeholder={''}
+                  error={errors.lastName?.message}
+                  label='Last name'
+                  className={styles.cta}
+                  outlineclassName={styles.cta}
+                  wapperclassName={styles.cta}
+                  autoComplete='family-name'
+                />
+
+                <Input
+                  {...register('dateOfBirth')}
+                  placeholder={''}
+                  error={errors.dateOfBirth?.message}
+                  label='Date of Birth'
+                  type='date'
+                  className={styles.cta}
+                  outlineclassName={styles.cta}
+                  wapperclassName={styles.cta}
+                  autoComplete='bday'
+                />
+              </motion.div>
+            )}
+
+            {currentStep === 2 && (
+              <motion.div
+                initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+              >
+                <h2 className='text-base font-semibold leading-7 text-gray-900'>
+                  Select your college
+                </h2>
+                <Select register={register('college')}>
+                  <Select.OptionClg options={colleges} />
+                </Select>
+              </motion.div>
+            )}
+
+            {currentStep === 3 && (
+              <>
+                <h2 className='text-base font-semibold leading-7 text-gray-900'>
+                  Complete
+                </h2>
+                <p className='mt-1 text-sm leading-6 text-gray-600'>
+                  Thank you for your submission.
+                </p>
+              </>
+            )}
+          </form>
+          <section className={styles.action}>
+            {currentStep < steps.length - 1 ? (
+              <>
+                <Button
+                  btn='base'
+                  className={cls(
+                    styles.cta,
+                    styles.btn,
+                    currentStep === 0 && styles.hide
+                  )}
+                  disabled={isSubmitting}
+                  onClick={prev}
+                >
+                  <Icon icon='back' />
+                </Button>
+                <Button
+                  btn='base'
+                  className={cls(styles.cta, styles.btn)}
+                  disabled={isSubmitting}
+                  onClick={next}
+                >
+                  Next
+                  <Icon icon='back' style={{ rotate: '180deg' }} />
+                </Button>
+              </>
+            ) : (
+              <Link
+                href={ROUTE.HOME}
+                className={cls(styles.cta, styles.btn)}
+                passHref
+              >
+                <Button btn='outline'>Grab your Food</Button>
+              </Link>
+            )}
           </section>
-        )}
-        {currentStep === 1 && (
+        </>
+      ) : (
+        <section>
           <motion.div
             initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
             <h2 className='text-base font-semibold leading-7 text-gray-900'>
-              Personal Information
+              Select your college name or location
             </h2>
-
-            <Input
-              type='text'
-              {...register('firstName')}
-              placeholder={''}
-              error={errors.firstName?.message}
-              label='Name'
-              className={styles.cta}
-              outlineclassName={styles.cta}
-              wapperclassName={styles.cta}
-              autoComplete='given-name'
-            />
-            <Input
-              {...register('lastName')}
-              placeholder={''}
-              error={errors.lastName?.message}
-              label='Last name'
-              className={styles.cta}
-              outlineclassName={styles.cta}
-              wapperclassName={styles.cta}
-              autoComplete='family-name'
-            />
-
-            <Input
-              {...register('dateOfBirth')}
-              placeholder={''}
-              error={errors.dateOfBirth?.message}
-              label='Date of Birth'
-              type='date'
-              className={styles.cta}
-              outlineclassName={styles.cta}
-              wapperclassName={styles.cta}
-              autoComplete='bday'
-            />
-          </motion.div>
-        )}
-
-        {currentStep === 2 && (
-          <motion.div
-            initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-          >
-            <h2 className='text-base font-semibold leading-7 text-gray-900'>
-              Address
-            </h2>
-            <Select register={register('college')}>
+            <Select onChange={onOptionChangeHandler}>
               <Select.OptionClg options={colleges} />
             </Select>
+            <br />
+            <Button
+              btn='outline'
+              className={'p-2 w-full'}
+              onClick={updateCollegePerence}
+            >
+              Grab your order!
+            </Button>
           </motion.div>
-        )}
-
-        {currentStep === 3 && (
-          <>
-            <h2 className='text-base font-semibold leading-7 text-gray-900'>
-              Complete
-            </h2>
-            <p className='mt-1 text-sm leading-6 text-gray-600'>
-              Thank you for your submission.
-            </p>
-          </>
-        )}
-      </form>
-      <section className={styles.action}>
-        {currentStep < steps.length - 1 ? (
-          <>
-            <Button
-              btn='base'
-              className={cls(
-                styles.cta,
-                styles.btn,
-                currentStep === 0 && styles.hide
-              )}
-              disabled={isSubmitting}
-              onClick={prev}
-            >
-              <Icon icon='back' />
-            </Button>
-            <Button
-              btn='base'
-              className={cls(styles.cta, styles.btn)}
-              disabled={isSubmitting}
-              onClick={next}
-            >
-              Next
-              <Icon icon='back' style={{ rotate: '180deg' }} />
-            </Button>
-          </>
-        ) : (
-          <Link href={ROUTE.HOME} className={cls(styles.cta, styles.btn)}>
-            Grab your Food
-          </Link>
-        )}
-      </section>
+        </section>
+      )}
     </section>
   )
 }
