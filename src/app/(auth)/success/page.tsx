@@ -4,6 +4,7 @@ import styles from './page.module.scss'
 import View from './view'
 import { cls } from '@/common/utils/classnames'
 import { customFetch } from '@/client/services/interceptor/fetch'
+import { Suspense } from 'react'
 
 async function getData() {
   const res = await customFetch(
@@ -34,7 +35,9 @@ async function Success() {
         objectFit='contain'
         className={styles.logo}
       />
-      <View colleges={data_colleges} />
+      <Suspense>
+        <View colleges={data_colleges} />
+      </Suspense>
     </main>
   )
 }
