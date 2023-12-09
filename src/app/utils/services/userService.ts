@@ -1,6 +1,6 @@
 import { createInstace } from '@/client/services/appwrite'
 import env from '@/configs/environment'
-import { Account, Databases, ID, Query } from 'appwrite'
+import { Account, Databases, Query } from 'appwrite'
 const client = createInstace()
 const databases = new Databases(client)
 const account = new Account(client)
@@ -24,7 +24,9 @@ class UserService {
         function (response) {
           isAdmin = response?.labels?.includes('Admin')
         },
-        function (error) {}
+        function (error) {
+          return error
+        }
       )
     } catch (error) {}
     return isAdmin
@@ -36,7 +38,9 @@ class UserService {
         function (response) {
           isMerchant = response?.labels?.includes('Merchant')
         },
-        function (error) {}
+        function (error) {
+          return error
+        }
       )
     } catch (error) {}
     return isMerchant
@@ -52,4 +56,5 @@ class UserService {
     return response
   }
 }
-export default new UserService()
+const userService = new UserService()
+export default userService

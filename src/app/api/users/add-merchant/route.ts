@@ -35,10 +35,7 @@ export async function POST(req: Request) {
             return NextResponse.json(JSON.stringify(response)) // Success
           },
           function (error: any) {
-            return NextResponse.json(
-              { error: 'An error occurred' },
-              { status: 500 }
-            )
+            return NextResponse.json({ error: error }, { status: 500 })
           }
         )
       } else {
