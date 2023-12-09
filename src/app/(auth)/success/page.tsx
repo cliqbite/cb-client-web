@@ -5,12 +5,12 @@ import View from './view'
 import { cls } from '@/common/utils/classnames'
 import { customFetch } from '@/client/services/interceptor/fetch'
 import { Suspense } from 'react'
+import env from '@/configs/environment'
 
 async function getData() {
-  const res = await customFetch(
-    'http://localhost:3000/api/colleges/get-colleges',
-    { method: 'GET' }
-  )
+  const res = await customFetch(`${env.hostUrl}/api/colleges/get-colleges`, {
+    method: 'GET'
+  })
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 

@@ -1,3 +1,15 @@
 .page {
   margin-top: 3em;
 }
+
+.settings {
+  display: grid;
+  grid-template-rows: 1fr;
+  gap: 0.5em;
+  margin-block: 1em;
+}
+
+.loader {
+  min-height: 70svh;
+  height: 100%;
+}

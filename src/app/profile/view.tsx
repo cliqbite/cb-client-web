@@ -23,6 +23,10 @@ export default function View() {
           <Loader.Avatar />
         </Loader>
       )}
+      <ul>
+        <li>Update College</li>
+        <li>Birth date</li>
+      </ul>
     </section>
   )
 }
