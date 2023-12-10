@@ -9,5 +9,6 @@ export const ICON = {
   GOOGLE: 'google',
   VALIDATE: 'validate',
   CROSS: 'cross',
-  AWESOME: 'awesome'
+  AWESOME: 'awesome',
+  LOCATION: 'location'
 } as const

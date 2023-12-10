@@ -1,6 +1,6 @@
 import { type FC, type ReactNode, type SVGAttributes } from 'react'
 import { ICON } from '@/common/constants/icons'
-import { FaUser, FaCartShopping } from 'react-icons/fa6'
+import { FaUser, FaCartShopping, FaLocationDot } from 'react-icons/fa6'
 import { LuSearch } from 'react-icons/lu'
 import { GoHomeFill } from 'react-icons/go'
 import { IoIosArrowBack, IoMdSchool } from 'react-icons/io'
@@ -32,7 +32,8 @@ const _icons: Array<[string, IconType]> = [
   [ICON.GOOGLE, FcGoogle],
   [ICON.VALIDATE, GrValidate],
   [ICON.CROSS, HiMiniXMark],
-  [ICON.AWESOME, MdAutoAwesome]
+  [ICON.AWESOME, MdAutoAwesome],
+  [ICON.LOCATION, FaLocationDot]
 ]
 
 export const Icon: FC<IconType> = (props) => {

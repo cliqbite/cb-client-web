@@ -31,7 +31,7 @@ export const LocationSelection: FC<LocationSelectionProps> = () => {
             <Loader.Location size={'1em'} />
           </Loader>
         ) : (
-          <Icon icon='school' />
+          <Icon icon='location' />
         )}
       </div>
       <strong>
