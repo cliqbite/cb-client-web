@@ -76,7 +76,11 @@ type TFormDataSchema = z.infer<typeof FormDataSchema>
 type FieldName = keyof TFormDataSchema
 
 const View: FC<ViewProps> = () => {
-  const { data: colleges, isSuccess: isClgSuccess } = useQuery<College[]>({
+  const {
+    data: colleges,
+    isSuccess: isClgSuccess,
+    isLoading: isCollegeLoading
+  } = useQuery<College[]>({
     queryKey: ['college-selection'],
     queryFn: getCollege
   })
@@ -240,17 +244,23 @@ const View: FC<ViewProps> = () => {
               <h2 className='text-base font-semibold leading-7 text-gray-900'>
                 Select your college
               </h2>
-              {isClgSuccess && (
-                <Select
-                  register={register('college', {
-                    onChange: handleClgOnChange
-                  })}
-                >
-                  <Select.OptionClg options={colleges} />
-                </Select>
+              {isCollegeLoading ? (
+                <Loader>
+                  <Loader.Dot />
+                </Loader>
+              ) : (
+                isClgSuccess && (
+                  <Select
+                    register={register('college', {
+                      onChange: handleClgOnChange
+                    })}
+                  >
+                    <Select.OptionClg options={colleges} />
+                  </Select>
+                )
               )}
               <br />
-              {isCanteenLoading ? (
+              {isCanteenLoading && status !== 'success' ? (
                 <Loader>
                   <Loader.Dot />
                 </Loader>

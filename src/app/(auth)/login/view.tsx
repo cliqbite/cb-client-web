@@ -12,7 +12,6 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import authService from '@/client/modules/auth'
 import { useRouter } from 'next/navigation'
 import { ROUTE } from '@/common/constants/route'
-import env from '@/configs/environment'
 import useAuth from '@/client/hooks/useAuth'
 import Icon from '@/components/ui/icon'
 
