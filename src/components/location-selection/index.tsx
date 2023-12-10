@@ -1,32 +1,32 @@
 'use client'
 import useStore from '@/client/hooks/useStore'
-import { useCollege } from '@/client/store/useCollege'
 import { ROUTE } from '@/common/constants/route'
 import { useRouter } from 'next/navigation'
 import { type FC, useEffect } from 'react'
 import Loader from '../ui/loader'
 import styles from './style.module.scss'
 import Icon from '../ui/icon'
+import { useCanteen } from '@/client/store/useCanteen'
 
 interface LocationSelectionProps {}
 
 export const LocationSelection: FC<LocationSelectionProps> = () => {
   useEffect(() => {
-    useCollege.persist.rehydrate()
+    useCanteen.persist.rehydrate()
   }, [])
 
   const router = useRouter()
-  const selectedCollege = useStore(useCollege, (st) => st.college)
-  const hasHydrated = useStore(useCollege, (st) => st._hasHydrated)
+  const hasCanteenHydrated = useStore(useCanteen, (st) => st._hasHydrated)
+  const selectedCanteen = useStore(useCanteen, (st) => st.canteen)
 
-  if (!selectedCollege?.college_id && hasHydrated) {
-    router.push(`${ROUTE.SUCCESS}?gauth=1`)
+  if (!selectedCanteen?.id && hasCanteenHydrated) {
+    router.push(`${ROUTE.COLLEGE}`)
   }
 
   return (
     <section className={styles['location-seelctor']}>
       <div className={styles['icon-warpper']}>
-        {!hasHydrated && !selectedCollege?.college_name ? (
+        {!hasCanteenHydrated && !selectedCanteen?.name ? (
           <Loader className={styles.icon}>
             <Loader.Location size={'1em'} />
           </Loader>
@@ -34,7 +34,9 @@ export const LocationSelection: FC<LocationSelectionProps> = () => {
           <Icon icon='school' />
         )}
       </div>
-      <strong>{selectedCollege?.college_name}</strong>
+      <strong>
+        {selectedCanteen?.name},{selectedCanteen?.college.college_name}
+      </strong>
     </section>
   )
 }

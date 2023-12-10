@@ -1,11 +1,10 @@
-import Image from 'next/image'
-import logoPNG from '@/assets/png/logo.png'
+import { cls } from '@/common/utils/classnames'
 import styles from './page.module.scss'
 import View from './view'
-import { cls } from '@/common/utils/classnames'
-import { Suspense } from 'react'
+import Image from 'next/image'
+import logoPNG from '@/assets/png/logo.png'
 
-function Success() {
+const CollegeSelectionPage = () => {
   return (
     <main className={cls('page', styles.page)}>
       <Image
@@ -16,11 +15,9 @@ function Success() {
         objectFit='contain'
         className={styles.logo}
       />
-      <Suspense>
-        <View />
-      </Suspense>
+      <View />
     </main>
   )
 }
 
-export default Success
+export default CollegeSelectionPage

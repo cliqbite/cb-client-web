@@ -8,5 +8,6 @@ export const ROUTE = {
   SPLASH: '/splash',
   HOME: '/home',
 
-  MERCHANT: '/merchant'
+  MERCHANT: '/merchant',
+  COLLEGE: '/college'
 }

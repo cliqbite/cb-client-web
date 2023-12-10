@@ -8,6 +8,8 @@ import styles from './style.module.scss'
 import { cls } from '@/common/utils/classnames'
 import { type UseFormRegisterReturn } from 'react-hook-form'
 import type { College } from '@/common/types'
+import { Canteen } from '@/server/model/canteen'
+import { log } from '@/common/log'
 
 type OptionsProps<T> = {
   options: T[]
@@ -58,8 +60,10 @@ export const Select = ({ children, ...props }: SelectProps) => {
 const OptionClg: FC<OptionsProps<College>> = ({ options, ...props }) => {
   return (
     <>
-      <option {...props}>Select college</option>
-      {options.map((optn) => {
+      <option value={undefined} {...props}>
+        Select college
+      </option>
+      {options?.map((optn) => {
         return (
           <option value={optn.college_name} key={optn.college_id} {...props}>
             {optn.college_name}
@@ -70,7 +74,26 @@ const OptionClg: FC<OptionsProps<College>> = ({ options, ...props }) => {
   )
 }
 
+const OptionCanteen: FC<OptionsProps<Canteen>> = ({ options, ...props }) => {
+  log('options', options)
+  return (
+    <>
+      <option value={undefined} {...props}>
+        Select Canteen
+      </option>
+      {options?.map((optn) => {
+        return (
+          <option value={optn.name} key={optn.id} {...props}>
+            {optn.name}
+          </option>
+        )
+      })}
+    </>
+  )
+}
+
 Select.OptionClg = OptionClg
+Select.OptionCanteen = OptionCanteen
 export default Select
 
 {

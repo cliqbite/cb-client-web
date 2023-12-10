@@ -7,9 +7,11 @@
   grid-template-rows: 1fr;
   gap: 0.5em;
   margin-block: 1em;
+  height: 100%;
 }
 
 .loader {
-  min-height: 70svh;
+  min-height: 50svh;
   height: 100%;
+  margin: auto;
 }

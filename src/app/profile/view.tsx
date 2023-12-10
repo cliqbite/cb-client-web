@@ -18,15 +18,17 @@ export default function View() {
 
   return (
     <section className={cls(styles.settings)}>
-      {isLoading && (
+      {isLoading ? (
         <Loader className={styles.loader}>
-          <Loader.Avatar />
+          <Loader.Dot />
+          <label>Loading...</label>
         </Loader>
+      ) : (
+        <ul>
+          <li>Update College</li>
+          <li>Birth date</li>
+        </ul>
       )}
-      <ul>
-        <li>Update College</li>
-        <li>Birth date</li>
-      </ul>
     </section>
   )
 }
