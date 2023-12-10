@@ -82,7 +82,8 @@ const View: FC<ViewProps> = () => {
     isLoading: isCollegeLoading
   } = useQuery<College[]>({
     queryKey: ['college-selection'],
-    queryFn: getCollege
+    queryFn: getCollege,
+    retry: 3
   })
 
   const [previousStep, setPreviousStep] = useState(0)
