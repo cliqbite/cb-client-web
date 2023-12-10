@@ -11,7 +11,8 @@ const env = {
     canteen: process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_CANTEEN_ID!,
     orders: process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ORDERS_ID!,
     colleges: process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_COLLEGES_ID!,
-    food: process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_FOOD_ID!
+    food: process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_FOOD_ID!,
+    consumer: process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_CONSUMER_ID!
   },
   appwriteBucketId: process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID!,
   // analytics
