@@ -8,7 +8,7 @@
       "name": "Next.js: debug server-side",
       "type": "node-terminal",
       "request": "launch",
-      "command": "pnpm dev"
+      "command": "pnpm dev:debug"
     },
     {
       "name": "Next.js: debug client-side",
@@ -21,7 +21,7 @@
       "name": "Next.js: debug full stack",
       "type": "node-terminal",
       "request": "launch",
-      "command": "pnpm dev",
+      "command": "pnpm dev:debug",
       "serverReadyAction": {
         "action": "debugWithChrome",
         "pattern": "listening on .+, port ([0-9]+), url: (https?://.+)",
