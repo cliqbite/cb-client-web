@@ -45,3 +45,12 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+### Other ways to debug Node.js:
+
+```bash
+pnpm dev:debug
+```
+
+Open chrome://inspect in a Chromium-based browser or edge://inspect in Edge
+Copy the devtoolsFrontendUrl from the output of /json/list or the --inspect hint text and paste into Chrome
