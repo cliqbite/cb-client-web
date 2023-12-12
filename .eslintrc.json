@@ -1,5 +1,9 @@
 {
-  "extends": ["prettier", "next/core-web-vitals"],
+  "extends": [
+    "plugin:storybook/recommended",
+    "prettier",
+    "next/core-web-vitals"
+  ],
   "rules": {
     "no-duplicate-imports": "warn",
     "no-console": [
