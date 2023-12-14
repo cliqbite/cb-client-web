@@ -1,11 +1,11 @@
 'use client'
-import { cls } from '@/common/utils/classnames'
-import Icon from '../ui/icon'
-import styles from './style.module.scss'
-import { usePathname } from 'next/navigation'
-import Link from 'next/link'
 import { ICON } from '@/common/constants/icons'
 import { ROUTE } from '@/common/constants/route'
+import { cls } from '@/common/utils/classnames'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import Icon from '../ui/icon'
+import styles from './style.module.scss'
 
 const B_NAV = [
   {
@@ -48,7 +48,8 @@ const BYPASS_NAV = [
   ROUTE.FORGOT,
   ROUTE.SIGNUP,
   ROUTE.SUCCESS,
-  ROUTE.MERCHANT
+  ROUTE.MERCHANT,
+  `${ROUTE.MERCHANT}/orders`
 ]
 
 export default function Navigation({ active }: NavigationProps) {

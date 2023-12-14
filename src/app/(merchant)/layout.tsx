@@ -1,7 +1,7 @@
-import '@/styles/globals.scss'
-import '@/styles/common.scss'
-import Navigation from '@/components/Navigation'
+import Navigation from '@/components/Navigation/merchant'
 import Layout from '@/components/template'
+import '@/styles/common.scss'
+import '@/styles/globals.scss'
 
 export default function MerchantLayout({
   children
