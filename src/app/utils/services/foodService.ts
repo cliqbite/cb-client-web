@@ -21,6 +21,7 @@ class FoodService {
       if (response) {
         response.documents.forEach((el) => {
           item = {
+            id: el.$id,
             name: el.name,
             category: el.category,
             price: el.price,
@@ -53,6 +54,7 @@ class FoodService {
         response.documents.forEach((el) => {
           if (el.category.includes(category)) {
             item = {
+              id: el.$id,
               name: el.name,
               category: el.category,
               price: el.price,
