@@ -5,6 +5,7 @@ import styles from './style.module.scss'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { ICON } from '@/common/constants/icons'
+import { ROUTE } from '@/common/constants/route'
 
 const B_NAV = [
   {
@@ -40,7 +41,15 @@ interface NavigationProps {
 // Regular expression to split the pathname by "/"
 const REGEX = /\/+/
 
-const BYPASS_NAV = ['/splash', '/login', '/verification', '/forgot', '/signup']
+const BYPASS_NAV = [
+  ROUTE.SPLASH,
+  ROUTE.LOGIN,
+  ROUTE.VERIFY,
+  ROUTE.FORGOT,
+  ROUTE.SIGNUP,
+  ROUTE.SUCCESS,
+  ROUTE.MERCHANT
+]
 
 export default function Navigation({ active }: NavigationProps) {
   const pathname = usePathname()

@@ -1,6 +1,13 @@
 export const ROUTE = {
   LOGIN: '/login',
   VERIFY: '/verification',
+  FORGOT: '/forgot',
+  SIGNUP: '/signup',
+  SUCCESS: '/success',
 
-  HOME: '/home'
+  SPLASH: '/splash',
+  HOME: '/home',
+
+  MERCHANT: '/merchant',
+  COLLEGE: '/college'
 }

@@ -2,5 +2,9 @@
   display: grid;
   place-items: center;
   height: 100%;
-  --loader-color: var(--primary);
+  position: relative;
+}
+
+.clr {
+  --loader-color: var(--primary, orange);
 }

@@ -7,5 +7,8 @@ export const ICON = {
   BACK: 'back',
   LOGOUT: 'logout',
   GOOGLE: 'google',
-  VALIDATE: 'validate'
+  VALIDATE: 'validate',
+  CROSS: 'cross',
+  AWESOME: 'awesome',
+  LOCATION: 'location'
 } as const

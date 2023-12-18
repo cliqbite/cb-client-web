@@ -12,7 +12,6 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import authService from '@/client/modules/auth'
 import { useRouter } from 'next/navigation'
 import { ROUTE } from '@/common/constants/route'
-import env from '@/configs/environment'
 import useAuth from '@/client/hooks/useAuth'
 import Icon from '@/components/ui/icon'
 
@@ -57,10 +56,10 @@ const View: FC<ViewProps> = ({}) => {
   }
 
   const gAuthHandle = async () => {
-    await authService.gOAuthLogin(
-      `${window?.location.origin || env.hostUrl}${ROUTE.HOME}`,
-      `${window?.location.origin || env.hostUrl}${ROUTE.LOGIN}`
-    )
+    const successURL = `${window?.location.origin}${ROUTE.COLLEGE}`,
+      failurURL = `${window?.location?.origin}${ROUTE.LOGIN}`
+
+    await authService.gOAuthLogin(successURL, failurURL)
   }
 
   return (
