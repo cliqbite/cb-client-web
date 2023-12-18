@@ -10,5 +10,9 @@ export const ICON = {
   VALIDATE: 'validate',
   CROSS: 'cross',
   AWESOME: 'awesome',
-  LOCATION: 'location'
+  LOCATION: 'location',
+  MENU: 'menu',
+  KEBAB: 'kebab',
+  USER: 'user',
+  FORWARD: 'forward'
 } as const

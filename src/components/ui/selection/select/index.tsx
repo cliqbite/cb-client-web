@@ -1,15 +1,15 @@
+import { log } from '@/common/log'
+import type { College } from '@/common/types'
+import { cls } from '@/common/utils/classnames'
+import { Canteen } from '@/server/model/canteen'
 import type {
   FC,
   OptionHTMLAttributes,
   ReactNode,
   SelectHTMLAttributes
 } from 'react'
-import styles from './style.module.scss'
-import { cls } from '@/common/utils/classnames'
 import { type UseFormRegisterReturn } from 'react-hook-form'
-import type { College } from '@/common/types'
-import { Canteen } from '@/server/model/canteen'
-import { log } from '@/common/log'
+import styles from './style.module.scss'
 
 type OptionsProps<T> = {
   options: T[]
@@ -66,7 +66,7 @@ const OptionClg: FC<OptionsProps<College>> = ({ options, ...props }) => {
       {options?.map((optn) => {
         return (
           <option value={optn.college_name} key={optn.college_id} {...props}>
-            {optn.college_name}
+            {optn?.college_name}
           </option>
         )
       })}

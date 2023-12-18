@@ -1,12 +1,12 @@
 'use client'
 import useStore from '@/client/hooks/useStore'
+import { useCanteen } from '@/client/store/useCanteen'
 import { ROUTE } from '@/common/constants/route'
 import { useRouter } from 'next/navigation'
-import { type FC, useEffect } from 'react'
+import { useEffect, type FC } from 'react'
+import Icon from '../ui/icon'
 import Loader from '../ui/loader'
 import styles from './style.module.scss'
-import Icon from '../ui/icon'
-import { useCanteen } from '@/client/store/useCanteen'
 
 interface LocationSelectionProps {}
 
@@ -35,7 +35,7 @@ export const LocationSelection: FC<LocationSelectionProps> = () => {
         )}
       </div>
       <strong>
-        {selectedCanteen?.name},{selectedCanteen?.college.college_name}
+        {selectedCanteen?.name},{selectedCanteen?.college?.college_name}
       </strong>
     </section>
   )
