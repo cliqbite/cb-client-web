@@ -1,5 +1,5 @@
-import Logger from '@/common/log'
 import appWriteClient from '@/client/services/appwrite'
+import Logger from '@/common/log'
 import { Account, type Client, type Models } from 'appwrite'
 
 export class Profile {

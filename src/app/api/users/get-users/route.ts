@@ -1,8 +1,8 @@
-import { Databases } from 'appwrite'
 import { createInstace } from '@/client/services/appwrite'
 import env from '@/configs/environment'
-import { NextResponse } from 'next/server'
 import { User } from '@/server/model/user'
+import { Databases } from 'appwrite'
+import { NextResponse } from 'next/server'
 const client = createInstace()
 const databases = new Databases(client)
 const collectionId = env.appwriteCollectionId.user
