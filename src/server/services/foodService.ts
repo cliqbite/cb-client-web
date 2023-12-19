@@ -1,8 +1,8 @@
+import { createInstace } from '@/client/services/appwrite'
 import env from '@/configs/environment'
+import { Food } from '@/server/model/food'
 import { Databases, Query } from 'appwrite'
 import { NextResponse } from 'next/server'
-import { createInstace } from '@/client/services/appwrite'
-import { Food } from '@/server/model/food'
 const client = createInstace()
 const databases = new Databases(client)
 const collectionIdFood = env.appwriteCollectionId.food

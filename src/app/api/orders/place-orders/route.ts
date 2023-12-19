@@ -1,8 +1,8 @@
-import { NextResponse } from 'next/server'
-import orderService from '@/app/utils/services/orderService'
-import { Databases, ID } from 'appwrite'
-import env from '@/configs/environment'
 import { createInstace } from '@/client/services/appwrite'
+import env from '@/configs/environment'
+import orderService from '@/server/services/orderService'
+import { Databases, ID } from 'appwrite'
+import { NextResponse } from 'next/server'
 const client = createInstace()
 const collectionId = env.appwriteCollectionId.orders
 const databaseId = env.appwriteDatabaseId.cliqbite

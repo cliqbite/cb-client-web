@@ -1,5 +1,5 @@
 'use client'
-import authService from '../modules/auth'
+import authService from '../lib/auth'
 
 export const getUser = async () => {
   return authService.getCurrentUser()

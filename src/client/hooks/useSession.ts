@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import authService from "../modules/auth";
-import { Session } from "../../common/types";
+import { useEffect, useState } from 'react'
+import { Session } from '../../common/types'
+import authService from '../lib/auth'
 
 async function getSession(id: string) {
   return authService.getSession(id)
@@ -18,5 +18,4 @@ export default function useSession(id: string = 'current') {
   }, [id])
 
   return { session, isLoading }
-
 }

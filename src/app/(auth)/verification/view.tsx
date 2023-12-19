@@ -1,12 +1,12 @@
 'use client'
-import OTPInput from '@/components/otp'
+import authService from '@/client/lib/auth'
 import { ROUTE } from '@/common/constants/route'
 import { error, log } from '@/common/log'
+import { cls } from '@/common/utils/classnames'
+import OTPInput from '@/components/otp'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useState, type FC } from 'react'
 import styles from './page.module.scss'
-import authService from '@/client/modules/auth'
-import { cls } from '@/common/utils/classnames'
 
 interface ViewProps {}
 
