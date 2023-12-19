@@ -1,6 +1,6 @@
 'use client'
+import authService from '@/client/lib/auth'
 import { useAccount } from '@/client/store'
-import authService from '@/client/modules/auth'
 import { useEffect, useState } from 'react'
 
 const getUser = async () => {
