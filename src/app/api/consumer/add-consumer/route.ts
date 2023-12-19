@@ -1,6 +1,6 @@
-import { NextResponse } from 'next/server'
 import { Consumer } from '@/server/model/consumer'
-import consumerService from '@/app/utils/services/consumerService'
+import consumerService from '@/server/services/consumerService'
+import { NextResponse } from 'next/server'
 
 export async function POST(req: Request) {
   if (req) {
