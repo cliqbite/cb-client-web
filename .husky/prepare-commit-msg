@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Ensure the script runs in the terminal
+exec < /dev/tty
+
+# Run Commitizen for preparing the commit message
+git cz --hook || true
+
+# Check if the commit message is valid
+if [ $? -ne 0 ]; then
+  echo "Error: The commit message is not valid."
+  exit 1
+fi
