@@ -3,7 +3,8 @@
 
 ## Getting Started
 
-First, run the development server:
+1. run `pnpm install` for installing the packages.
+2. After that run the development server:
 
 ```bash
 pnpm dev
@@ -50,6 +51,14 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+> ### Clear you local branches afte push
+>
+> ```bash
+> git branch | grep -v "develop" | xargs git branch -D
+> ```
+>
+> change branch `develop` to your current branch
 
 ## Deploy on Vercel
 
