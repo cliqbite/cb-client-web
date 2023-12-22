@@ -1,6 +1,6 @@
-import Logger from '@/common/log'
 import appWriteClient from '@/client/services/appwrite'
-import { Account, type Client, ID } from 'appwrite'
+import Logger from '@/common/log'
+import { Account, ID, type Client } from 'appwrite'
 
 type CreateAccount = {
   email: string

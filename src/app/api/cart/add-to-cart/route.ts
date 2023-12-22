@@ -1,5 +1,5 @@
+import cartService from '@/server/services/cartService'
 import { NextResponse } from 'next/server'
-import cartService from '@/app/utils/services/cartService'
 
 export async function POST(req: Request) {
   try {

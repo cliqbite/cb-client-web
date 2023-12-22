@@ -2,7 +2,7 @@
 import { getCanteen } from '@/client/functions/getCateen'
 import { getCollege } from '@/client/functions/getCollege'
 import { getUser } from '@/client/functions/getUser'
-import profileService from '@/client/modules/profile'
+import profileService from '@/client/lib/profile'
 import { useCanteen } from '@/client/store/useCanteen'
 import { useCollege } from '@/client/store/useCollege'
 import { ROUTE } from '@/common/constants/route'

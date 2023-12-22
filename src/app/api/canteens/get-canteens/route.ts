@@ -1,9 +1,9 @@
-import { Databases, Query } from 'appwrite'
-import env from '@/configs/environment'
-import { NextResponse } from 'next/server'
-import { College } from '@/server/model/college'
 import { createInstace } from '@/client/services/appwrite'
+import env from '@/configs/environment'
 import { Canteen } from '@/server/model/canteen'
+import { College } from '@/server/model/college'
+import { Databases, Query } from 'appwrite'
+import { NextResponse } from 'next/server'
 const client = createInstace()
 const databases = new Databases(client)
 const collectionId = env.appwriteCollectionId.canteen
