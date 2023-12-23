@@ -3,6 +3,7 @@ import { danger, fail, message, warn } from 'danger'
 
 // Setup
 const pr = danger.github.pr
+const modified_files = danger.git.modified_files
 
 //To get the current branch in github
 const currentBranch = danger.github.pr.head.ref
