@@ -4,8 +4,8 @@
 
 ### Checklist:
 
-- [x] I have performed a self-review of my own code
-- [ ] I have commented my code, particularly in hard-to-understand areas
+- [x] I have performed a self-review of my code
+- [ ] I have commented on my code, particularly in hard-to-understand areas
 
 ### Data Results
 

@@ -13,7 +13,9 @@
     "clean": "rimraf .next && rimraf dist",
     "clean:deep": "rimraf .next && rimraf dist && rimraf node_modules",
     "format": "tsc --pretty --noEmit && prettier --write .",
-    "serve": "rimraf .next && next build && next start"
+    "serve": "rimraf .next && next build && next start",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
@@ -40,6 +42,15 @@
     "zustand": "^4.4.7"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.6.4",
+    "@storybook/addon-interactions": "^7.6.4",
+    "@storybook/addon-links": "^7.6.4",
+    "@storybook/addon-mdx-gfm": "^7.6.4",
+    "@storybook/addon-onboarding": "^1.0.10",
+    "@storybook/blocks": "^7.6.4",
+    "@storybook/nextjs": "^7.6.4",
+    "@storybook/react": "^7.6.4",
+    "@storybook/test": "^7.6.4",
     "@tanstack/eslint-plugin-query": "^5.12.1",
     "@types/node": "^20",
     "@types/react": "^18",
@@ -53,12 +64,14 @@
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-storybook": "^0.6.15",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
     "postcss": "^8",
     "prettier": "^3.1.0",
     "rimraf": "^5.0.5",
     "sass": "^1.69.5",
+    "storybook": "^7.6.4",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   },
