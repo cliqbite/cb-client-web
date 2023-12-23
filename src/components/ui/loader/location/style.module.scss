@@ -1,20 +1,24 @@
 .loader-location {
-  width: 48px;
-  height: 48px;
+  --size: 3em;
+  --__translate: calc(var(--size, 48px) * 0.1041666667);
+  --__translateN: calc(var(--__translate) * -1);
+
+  width: var(--size, 48px);
+  height: var(--size, 48px);
+
   display: block;
-  margin: 20px auto;
   box-sizing: border-box;
   position: relative;
   &::after {
     content: '';
     box-sizing: border-box;
-    width: 48px;
-    height: 48px;
+    width: var(--size, 48px);
+    height: var(--size, 48px);
     left: 0;
     bottom: 0;
     position: absolute;
     border-radius: 50% 50% 0;
-    border: 15px solid var(--loader-color, #fff);
+    border: calc(var(--size, 48px) / 3) solid var(--loader-color, #fff);
     transform: rotate(45deg) translate(0, 0);
     box-sizing: border-box;
     animation: animMarker 0.4s ease-in-out infinite alternate;
@@ -27,7 +31,7 @@
     right: 0;
     margin: auto;
     top: 150%;
-    width: 24px;
+    width: calc(var(--size, 24px) / 2);
     height: 4px;
     border-radius: 50%;
     background: rgba(0, 0, 0, 0.2);
@@ -36,10 +40,12 @@
 
   @keyframes animMarker {
     0% {
-      transform: rotate(45deg) translate(5px, 5px);
+      transform: rotate(45deg)
+        translate(var(--__translate, 5px), var(--__translate, 5px));
     }
     100% {
-      transform: rotate(45deg) translate(-5px, -5px);
+      transform: rotate(45deg)
+        translate(var(--__translateN, -5px), var(--__translateN, -5px));
     }
   }
 

@@ -1,5 +1,5 @@
+import foodService from '@/server/services/foodService'
 import { NextResponse } from 'next/server'
-import foodService from '@/app/utils/services/foodService'
 export async function GET(req: any) {
   try {
     const canteen_id = req.nextUrl.searchParams.get('canteen_id')

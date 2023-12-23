@@ -1,20 +1,19 @@
 'use client'
-import { type FC } from 'react'
-import Input from '@/components/ui/input/outline'
+import useAuth from '@/client/hooks/useAuth'
+import authService from '@/client/lib/auth'
+import { ROUTE } from '@/common/constants/route'
+import { log } from '@/common/log'
+import { cls } from '@/common/utils/classnames'
 import OutlineCTA from '@/components/ui/button/outline'
 import LoginCTA from '@/components/ui/button/solid'
-import { cls } from '@/common/utils/classnames'
-import styles from './page.module.scss'
-import { z } from 'zod'
-import { log } from '@/common/log'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import authService from '@/client/modules/auth'
-import { useRouter } from 'next/navigation'
-import { ROUTE } from '@/common/constants/route'
-import env from '@/configs/environment'
-import useAuth from '@/client/hooks/useAuth'
 import Icon from '@/components/ui/icon'
+import Input from '@/components/ui/input/outline'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useRouter } from 'next/navigation'
+import { type FC } from 'react'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+import styles from './page.module.scss'
 
 const phoneRegex = /^\d{10}$/
 
@@ -57,10 +56,10 @@ const View: FC<ViewProps> = ({}) => {
   }
 
   const gAuthHandle = async () => {
-    await authService.gOAuthLogin(
-      `${window?.location.origin || env.hostUrl}${ROUTE.HOME}`,
-      `${window?.location.origin || env.hostUrl}${ROUTE.LOGIN}`
-    )
+    const successURL = `${window?.location.origin}${ROUTE.COLLEGE}`,
+      failurURL = `${window?.location?.origin}${ROUTE.LOGIN}`
+
+    await authService.gOAuthLogin(successURL, failurURL)
   }
 
   return (

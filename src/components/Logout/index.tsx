@@ -1,12 +1,12 @@
 'use client'
 
-import authService from '@/client/modules/auth'
-import Button from '../ui/button'
-import styles from './style.module.scss'
-import Icon from '../ui/icon'
+import authService from '@/client/lib/auth'
 import { useAccount } from '@/client/store'
-import { useRouter } from 'next/navigation'
 import { ROUTE } from '@/common/constants/route'
+import { useRouter } from 'next/navigation'
+import Button from '../ui/button'
+import Icon from '../ui/icon'
+import styles from './style.module.scss'
 
 export default function LogoutButton() {
   const user = useAccount((state) => state.user)

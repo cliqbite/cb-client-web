@@ -1,0 +1,18 @@
+.location-seelctor {
+  display: flex;
+  gap: 0.25em;
+  align-items: center;
+
+  .icon-warpper {
+    padding: 0.5em;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    background-color: var(--primary);
+    color: whitesmoke;
+
+    .icon {
+      color: whitesmoke;
+    }
+  }
+}

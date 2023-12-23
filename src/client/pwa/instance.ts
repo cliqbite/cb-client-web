@@ -44,7 +44,6 @@ let instance: ReturnType<typeof constructStore<PWAStoreValue>>
 const constructStore = <T extends object>(initial: T) => {
   /** Closure of the singleton's value to keep it private */
   let _value: T = initial
-  logger.log('initial::', initial)
 
   /** Only the accessors are returned */
   return {

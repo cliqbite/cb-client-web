@@ -1,6 +1,7 @@
 import '@/styles/globals.scss'
 import '@/styles/common.scss'
 import type { Metadata } from 'next'
+// import { Viewport } from 'next'
 import GoogleAnalytics from '@/client/services/analytics/GoogleAnalytics'
 import { cls } from '@/common/utils/classnames'
 import { siteConfig } from '@/configs/site'
@@ -21,7 +22,10 @@ export const metadata: Metadata = {
     icon: '/favicon.ico',
     shortcut: '/favicon-16x16.png',
     apple: '/images/icon-512x512.png'
-  },
+  }
+}
+
+export const viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: 'white' },
     { media: '(prefers-color-scheme: dark)', color: 'black' }

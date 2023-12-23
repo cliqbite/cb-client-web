@@ -1,0 +1,95 @@
+.card {
+  padding: 1em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-bottom: 0.5em;
+  border-radius: 0.25em;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5em;
+  margin-bottom: 0.5em;
+
+  &.coulmn {
+    flex-direction: column;
+  }
+
+  label {
+    color: grey;
+    font-size: 0.7em;
+  }
+
+  .dropdown {
+    width: 100%;
+    height: 100%;
+    max-height: fit-content;
+    font-size: 0.8em;
+  }
+}
+
+.btn {
+  width: 100%;
+  color: white;
+  background-color: var(--bg-clr, grey);
+  padding: 0.5em 1em;
+  border-radius: 0.25em;
+  border: none;
+
+  &.preparing {
+    --bg-clr: #ef6134;
+  }
+  &.accepted {
+    --bg-clr: #34b41f;
+  }
+  &.prepared {
+    --bg-clr: #3935d2;
+  }
+}
+
+.popupDrop {
+  width: fit-content;
+  width: 2em;
+  padding: 0.5em;
+  margin: auto;
+  position: relative;
+
+  .options {
+    position: absolute;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    transform: translateX(-100%);
+    border-radius: 0.25em;
+    color: black;
+
+    max-height: fit-content;
+    max-height: max-content;
+    transition: height 0.25s ease-in-out;
+
+    &:not(.hide) {
+      padding-block: 1em;
+    }
+
+    li {
+      list-style: none;
+      padding: 0.5em 2em;
+      position: relative;
+      &:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0.125em;
+        background-color: rgba(128, 128, 128, 0.073);
+        border-radius: 1em;
+      }
+    }
+
+    &.hide {
+      max-height: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+  }
+}

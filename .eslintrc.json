@@ -2,6 +2,7 @@
   "extends": [
     "plugin:storybook/recommended",
     "prettier",
+    "next",
     "next/core-web-vitals"
   ],
   "rules": {
@@ -12,6 +13,12 @@
         "allow": ["warn", "error"]
       }
     ],
-    "no-unused-vars": "warn"
+    "no-unused-vars": [
+      1,
+      {
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ]
   }
 }

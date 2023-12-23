@@ -1,4 +1,5 @@
 export class User {
+  id?: string
   username: string
   mobile_number: string
   email_id: string
@@ -8,6 +9,7 @@ export class User {
   role: string
 
   constructor(
+    id: string,
     username: string,
     mobile_number: string,
     email_id: string,
@@ -16,6 +18,7 @@ export class User {
     canteen: string[],
     role: string
   ) {
+    this.id = id
     this.username = username
     this.mobile_number = mobile_number
     this.email_id = email_id
