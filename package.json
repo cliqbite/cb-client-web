@@ -14,7 +14,6 @@
     "clean:deep": "rimraf .next && rimraf dist && rimraf node_modules",
     "format": "tsc --pretty --noEmit && prettier --write .",
     "serve": "rimraf .next && next build && next start",
-    "release": "standard-version",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -72,7 +71,6 @@
     "prettier": "^3.1.0",
     "rimraf": "^5.0.5",
     "sass": "^1.69.5",
-    "standard-version": "^9.5.0",
     "storybook": "^7.6.4",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
