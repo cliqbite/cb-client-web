@@ -9,12 +9,12 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
-    "commit": "git-cz",
-    "clean": "rimraf .next && rimraf dist",
-    "clean:deep": "rimraf .next && rimraf dist && rimraf node_modules",
-    "format": "tsc --pretty --noEmit && prettier --write .",
-    "serve": "rimraf .next && next build && next start",
-    "release": "standard-version"
+    "commit": "make commit",
+    "clean": "make clean",
+    "clean:deep": "make clean-deep",
+    "format": "make format",
+    "serve": "make serve",
+    "release": "make release"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
@@ -60,7 +60,6 @@
     "prettier": "^3.1.0",
     "rimraf": "^5.0.5",
     "sass": "^1.69.5",
-    "standard-version": "^9.5.0",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   },
