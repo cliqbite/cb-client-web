@@ -146,12 +146,16 @@ include Setup of env, IDE and typical getting started instructions?
 
 -->
 
+> will be updated
+
 ### Improving The Documentation
 
 <!-- TODO
 Updating, improving and correcting the documentation
 
 -->
+
+> will be updated
 
 ## Styleguides
 
@@ -210,6 +214,30 @@ BREAKING CHANGE: The 'exampleMethod' method now requires an additional 'options'
 
 See [conventionalcommits](https://www.conventionalcommits.org/en/v1.0.0/) conventionalcommits.org for more details.
 
+#### Remove old local branches
+
+Delete all merged branch locally:
+
+```bash
+git branch -D `git branch --merged | grep -v \* | xargs`
+```
+
+Delete all branches except a specific branch(except current -v ‘\*’):
+
+```bash
+git branch | grep -v "*" | xargs git branch -D
+```
+
+Delete all local branches except develop and main
+
+```bash
+git branch | grep -v "develop" | grep -v "main" | xargs git branch -D
+```
+
+> replace main with branch you want to keep, but then it will delete main
+
 ## Join The Project Team
 
 <!-- TODO -->
+
+> will be updated
