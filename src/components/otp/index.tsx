@@ -1,12 +1,12 @@
 import {
   memo,
-  useState,
   useCallback,
+  useId,
+  useState,
   type CSSProperties,
   type ChangeEvent,
-  type KeyboardEvent,
   type ClipboardEvent,
-  useId
+  type KeyboardEvent
 } from 'react'
 import SingleInput from './singleInput'
 
@@ -99,9 +99,41 @@ export function OTPInputComponent(props: OTPInputProps) {
     [focusInput]
   )
 
+  // handle all otp values together passed
+  const controlThroughput = useCallback(
+    (inputText: string) => {
+      const controlInputText = inputText
+        .trim()
+        .slice(0, length - activeInput)
+        .split('')
+
+      if (controlInputText) {
+        let nextFocusIndex = 0
+        const updatedOTPValues = [...otpValues]
+        updatedOTPValues.forEach((val, index) => {
+          if (index >= activeInput) {
+            const changedValue = getRightValue(controlInputText.shift() || val)
+            if (changedValue) {
+              updatedOTPValues[index] = changedValue
+              nextFocusIndex = index
+            }
+          }
+        })
+        setOTPValues(updatedOTPValues)
+        setActiveInput(Math.min(nextFocusIndex + 1, length - 1))
+      }
+    },
+    [activeInput, getRightValue, length, otpValues]
+  )
+
   // Handle onChange value for each input
   const handleOnChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
+      if (e.currentTarget.value.length === length) {
+        e.preventDefault()
+        controlThroughput(e.currentTarget.value)
+        return
+      }
       const val = getRightValue(e.currentTarget.value)
       if (!val) {
         e.preventDefault()
@@ -110,7 +142,13 @@ export function OTPInputComponent(props: OTPInputProps) {
       changeCodeAtFocus(val)
       focusNextInput()
     },
-    [changeCodeAtFocus, focusNextInput, getRightValue]
+    [
+      changeCodeAtFocus,
+      focusNextInput,
+      getRightValue,
+      controlThroughput,
+      length
+    ]
   )
 
   // Hanlde onBlur input
@@ -156,28 +194,9 @@ export function OTPInputComponent(props: OTPInputProps) {
   const handleOnPaste = useCallback(
     (e: ClipboardEvent<HTMLInputElement>) => {
       e.preventDefault()
-      const pastedData = e.clipboardData
-        .getData('text/plain')
-        .trim()
-        .slice(0, length - activeInput)
-        .split('')
-      if (pastedData) {
-        let nextFocusIndex = 0
-        const updatedOTPValues = [...otpValues]
-        updatedOTPValues.forEach((val, index) => {
-          if (index >= activeInput) {
-            const changedValue = getRightValue(pastedData.shift() || val)
-            if (changedValue) {
-              updatedOTPValues[index] = changedValue
-              nextFocusIndex = index
-            }
-          }
-        })
-        setOTPValues(updatedOTPValues)
-        setActiveInput(Math.min(nextFocusIndex + 1, length - 1))
-      }
+      controlThroughput(e.clipboardData.getData('text/plain'))
     },
-    [activeInput, getRightValue, length, otpValues]
+    [controlThroughput]
   )
 
   return (
