@@ -15,7 +15,8 @@
     "format": "tsc --pretty --noEmit && prettier --write .",
     "serve": "rimraf .next && next build && next start",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "generate": "plop"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
@@ -67,6 +68,7 @@
     "eslint-plugin-storybook": "^0.6.15",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
+    "plop": "^4.0.1",
     "postcss": "^8",
     "prettier": "^3.1.0",
     "rimraf": "^5.0.5",

@@ -1,0 +1,13 @@
+import { cls } from '@/common/utils/classnames';
+import styles from './page.module.scss';
+import View from './view';
+
+export default function {{pascalCase name}}(){
+  return (
+    <main className={cls("page", styles[{{camelCase name}}])}>
+      {{pascalCase name}}
+      <View></View>
+    </main>
+  )
+}
+
