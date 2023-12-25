@@ -5,6 +5,14 @@
     "next",
     "next/core-web-vitals"
   ],
+  "globals": {
+    "React": "readonly"
+  },
+  "overrides": [
+    {
+      "files": ["*.stories.@(ts|tsx|js|jsx|mjs|cjs)"]
+    }
+  ],
   "rules": {
     "no-duplicate-imports": "warn",
     "no-console": [
