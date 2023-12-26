@@ -39,7 +39,7 @@ const actions = (data) => {
     },
     {
       type: 'add',
-      path: `src/${data.template_type}/{{name}}/{{name}}.types.ts`,
+      path: `src/${data.template_type}/{{name}}/{{camelCase name}}.type.ts`,
       templateFile: 'plop-templates/types.template.hbs'
     }
   ]
