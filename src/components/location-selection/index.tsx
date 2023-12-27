@@ -1,9 +1,10 @@
 'use client'
+import { useEffectOnce } from '@/client/hooks'
 import useStore from '@/client/hooks/useStore'
 import { useCanteen } from '@/client/store/useCanteen'
 import { ROUTE } from '@/common/constants/route'
 import { useRouter } from 'next/navigation'
-import { useEffect, type FC } from 'react'
+import { type FC } from 'react'
 import Icon from '../ui/icon'
 import Loader from '../ui/loader'
 import styles from './style.module.scss'
@@ -11,9 +12,9 @@ import styles from './style.module.scss'
 interface LocationSelectionProps {}
 
 export const LocationSelection: FC<LocationSelectionProps> = () => {
-  useEffect(() => {
+  useEffectOnce(() => {
     useCanteen.persist.rehydrate()
-  }, [])
+  })
 
   const router = useRouter()
   const hasCanteenHydrated = useStore(useCanteen, (st) => st._hasHydrated)

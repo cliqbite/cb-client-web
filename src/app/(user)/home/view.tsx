@@ -22,7 +22,7 @@ const View = () => {
   }
   if (!user) router.push(ROUTE.LOGIN)
   return (
-    <main className={cls('page', styles.page)}>
+    <main className={cls('contain', styles.page)}>
       <CardPromotion />
       <Rail>
         {'testing'.split('').map((_, key) => (
