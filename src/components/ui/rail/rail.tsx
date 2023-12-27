@@ -64,7 +64,7 @@ export const Rail = ({ children, className, ...props }: TRail) => {
     <section className={cls(styles['rail--container'])}>
       <ul
         onScroll={onScroll}
-        className={cls(styles['rail'], className)}
+        className={cls('pad-gap', styles['rail'], className)}
         {...props}
         ref={sliderRef}
       >

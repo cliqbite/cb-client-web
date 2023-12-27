@@ -15,6 +15,7 @@ export const Image: FC<TImage> = ({
   const mhasError = useMemo(() => hasError, [hasError])
   return (
     <NextImage
+      draggable={false}
       {...props}
       className={cls(styles['image'], className)}
       alt={props.alt}
