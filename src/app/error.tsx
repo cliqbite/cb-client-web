@@ -1,11 +1,11 @@
 'use client'
 
-import { logger } from '@/common/log'
-import { useEffect } from 'react'
-import { cls } from '@/common/utils/classnames'
-import Image from 'next/image'
 import cookieStar from '@/assets/svg/cookie-star.svg'
+import { logger } from '@/common/log'
+import { cls } from '@/common/utils/classnames'
 import Button from '@/components/ui/button'
+import Image from 'next/image'
+import { useEffect } from 'react'
 
 export default function Error({
   error,

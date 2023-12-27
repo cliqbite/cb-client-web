@@ -1,10 +1,10 @@
+import fallback16x9 from '@/assets/png/fallback16x9.png'
 import { log } from '@/common/log'
 import { cls } from '@/common/utils/classnames'
-import styles from './page.module.scss'
-import Image from 'next/image'
-import fallback16x9 from '@/assets/png/fallback16x9.png'
-import { Suspense } from 'react'
 import { BackNavigation } from '@/components/ui/icon/back'
+import Image from '@/components/ui/image'
+import { Suspense } from 'react'
+import styles from './page.module.scss'
 
 interface FoodDetailProps {
   params: { slug: string }
