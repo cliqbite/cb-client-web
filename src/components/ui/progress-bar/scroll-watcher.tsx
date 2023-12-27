@@ -4,7 +4,7 @@ import styles from './style.module.scss'
 
 interface IScrollWatcher {}
 
-export const ScrollWatcher: FC<IScrollWatcher> = ({}) => {
+export const ScrollWatcher: FC<IScrollWatcher> = () => {
   return <div className={cls(styles['scroll-watcher'])}></div>
 }
 export default ScrollWatcher
