@@ -1,13 +1,14 @@
 'use client'
-import { useState, type FC } from 'react'
-import styles from './styles.module.scss'
-import Image from 'next/image'
-import { cls } from '@/common/utils/classnames'
-import fallback16x9 from '@/assets/png/fallback16x9.png'
 import promotionalImage from '@/assets/png/banner.png'
+import fallback16x9 from '@/assets/png/fallback16x9.png'
+import { useMediaQuery } from '@/client/hooks/useMediaQuery'
+import { cls } from '@/common/utils/classnames'
+import Image from '@/components/ui/image'
 import { useKeenSlider } from 'keen-slider/react'
+import { type FC } from 'react'
+import styles from './styles.module.scss'
 
-const AUTO_SWITCH_TIMER = 5000
+const AUTO_SWITCH_TIMER = 7000
 
 type ImageType = { src: string }
 
@@ -18,18 +19,17 @@ interface CardPromotionProps {
 const CardPromotion: FC<CardPromotionProps> = ({
   images = [{ src: fallback16x9 }, { src: promotionalImage }]
 }) => {
-  const [opacities, setOpacities] = useState<number[]>([])
-
+  const matches = useMediaQuery('(min-width: 768px)')
   const [sliderRef] = useKeenSlider<HTMLDivElement>(
     {
-      slides: images.length,
       loop: true,
-      rtl: true,
-      detailsChanged(s) {
-        const new_opacities = s.track.details.slides.map(
-          (slide) => slide.portion
-        )
-        setOpacities(new_opacities)
+      slides: {
+        origin: 'center',
+        spacing: 6,
+        perView() {
+          if (matches) return 2
+          return 1
+        }
       }
     },
     [
@@ -63,19 +63,22 @@ const CardPromotion: FC<CardPromotionProps> = ({
       }
     ]
   )
+  if (images.length === 0) return <></>
 
   return (
-    <div className={cls(styles.promotion, styles.fader)} ref={sliderRef}>
+    <div
+      className={cls('keen-slider', styles['promotion'])}
+      ref={images.length > 1 ? sliderRef : undefined}
+    >
       {images.map((image, idx) => (
         <div
           key={idx}
-          className={styles['fader__slide']}
-          style={{ opacity: opacities[idx] }}
+          className={cls('keen-slider__slide', styles['promotion__slide'])}
         >
           <Image
             alt=''
             src={image.src ?? fallback16x9}
-            className={cls(styles.img, styles['fader__image'])}
+            className={cls(styles['promotion__image'])}
             loading='lazy'
             width={342}
             height={184}
