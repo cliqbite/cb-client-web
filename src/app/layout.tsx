@@ -1,4 +1,4 @@
-import { Layout, TanstackQueryClient } from '@/client/container/provider'
+import { TanstackQueryClient } from '@/client/container/provider'
 import PWAPrompt from '@/client/pwa'
 import GoogleAnalytics from '@/client/services/analytics/GoogleAnalytics'
 import { cls } from '@/common/utils/classnames'
@@ -37,9 +37,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={cls(fontSans.className)} suppressHydrationWarning={true}>
-        <TanstackQueryClient>
-          <Layout>{children}</Layout>
-        </TanstackQueryClient>
+        <TanstackQueryClient>{children}</TanstackQueryClient>
         <PWAPrompt type='initiate' />
         <GoogleAnalytics />
       </body>

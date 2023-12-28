@@ -1,3 +1,4 @@
+'use client'
 import fallback16x9 from '@/assets/png/fallback16x9.png'
 import { cls } from '@/common/utils/classnames'
 import NextImage from 'next/image'

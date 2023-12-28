@@ -1,14 +1,13 @@
 import { cls } from '@/common/utils/classnames'
+import Button from '@/components/ui/button'
 import { OnClick } from '..'
 import styles from './style.module.scss'
-import Button from '@/components/ui/button'
 
 export function PWAPromptBanner({ onClick }: OnClick) {
   // Install our free web app to keep track of your orders.
   return (
     <section className={cls(styles.toast)}>
       <h5 className={cls(styles.header)}>
-        {' '}
         Keep App, For Offline & Quick Access!
       </h5>
       <p className={cls(styles.body)}>

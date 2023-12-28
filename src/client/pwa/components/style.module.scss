@@ -23,6 +23,20 @@
     transform: rotate(90deg);
   }
 }
+.landing-page {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-block: 1em;
+  gap: 1em;
+  flex-wrap: nowrap;
+
+  .btn {
+    color: var(--primary);
+    background-color: transparent;
+    border: 0.125em solid rgb(201, 194, 189);
+  }
+}
 
 @keyframes slideIn {
   0% {
