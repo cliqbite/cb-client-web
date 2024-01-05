@@ -6,7 +6,7 @@ import { customFetch } from '../services/interceptor/fetch'
 
 export const getFoodList = async (
   canteenId: string,
-  category?: string
+  category: string = ''
 ): Promise<FoodType[]> => {
   const res = await customFetch(
     `${env.hostUrl}/api/food/menu?canteen_id=${canteenId}&category=${category}`,

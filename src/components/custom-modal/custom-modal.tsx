@@ -17,6 +17,13 @@ export const ModalCustom = () => {
     setShowModal(!!data)
   }, [])
 
+  useEffectOnce(() => {
+    modal$.subscribe(onModalObserver)
+    return () => {
+      modal$.unsubscribe(onModalObserver)
+    }
+  })
+
   const handleCloseModal = useCallback(() => {
     modal$.trigger(false)
   }, [])
@@ -30,13 +37,6 @@ export const ModalCustom = () => {
   useOnClickOutside(modalBodyRef, handleCloseModal)
 
   useEventListener('keydown', handleEscapeKeyPress)
-
-  useEffectOnce(() => {
-    modal$.subscribe(onModalObserver)
-    return () => {
-      modal$.unsubscribe(onModalObserver)
-    }
-  })
 
   return (
     <section
