@@ -16,11 +16,11 @@ export const customFetch = async (
     // Add your custom headers here
     ...nextApiHeader
   }
-  // TODO: repair this
+
   const requestOptions: RequestInit = {
     method: options.method,
-    // headers: new Headers(headers),
-    // body: options.body && JSON.stringify(options.body),
+    headers: new Headers(headers),
+    body: options.body && JSON.stringify(options.body),
     signal: options?.signal
   }
 
