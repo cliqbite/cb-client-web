@@ -1,6 +1,6 @@
-import { NextResponse } from 'next/server'
-import foodService from '@/app/utils/services/foodService'
-export async function GET(req: any) {
+import foodService from '@/server/services/foodService'
+import { NextRequest, NextResponse } from 'next/server'
+export async function GET(req: NextRequest) {
   try {
     const canteen_id = req.nextUrl.searchParams.get('canteen_id')
     const name = req.nextUrl.searchParams.get('name')

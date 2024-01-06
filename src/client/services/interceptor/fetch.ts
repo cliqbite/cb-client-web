@@ -4,6 +4,7 @@ type CustomFetchOptions = {
   method: 'GET' | 'POST' | 'PUT' | 'DELETE'
   headers?: Record<string, string>
   body?: string | Record<string, any>
+  signal?: AbortSignal
 }
 
 export const customFetch = async (
@@ -20,7 +21,8 @@ export const customFetch = async (
   const requestOptions: RequestInit = {
     method: options.method,
     headers: new Headers(headers),
-    body: options.body && JSON.stringify(options.body)
+    body: options.body && JSON.stringify(options.body),
+    signal: options?.signal
   }
 
   return fetch(url, requestOptions)
