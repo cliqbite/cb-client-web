@@ -2,8 +2,9 @@
 import { getFoodList } from '@/client/functions/getFoodList'
 import useAuth from '@/client/hooks/useAuth'
 import { ROUTE } from '@/common/constants/route'
-import clsx, { cls } from '@/common/utils/classnames'
+import { cls } from '@/common/utils/classnames'
 import CardBasic from '@/components/card/basic'
+import CardDetail from '@/components/card/detail'
 import CardPromotion from '@/components/card/promotion'
 import Loader from '@/components/ui/loader'
 import Rail from '@/components/ui/rail'
@@ -34,18 +35,23 @@ const View = () => {
   return (
     <main className={cls('contain', styles.page)}>
       <CardPromotion />
-      <h3 className={clsx('pad-gap', styles.railTitle)}>All</h3>
-      <Rail>
+      {(data || [])
+        .filter((item) => item.available)
+        .map((item) => (
+          <CardDetail key={item.id} name={item?.name} price={item?.price} />
+        ))}
+      <Rail heading='All'>
         {(data || [])
           .filter((item) => item.available)
+          .filter((item) => !item.category.includes('snacks'))
+          .filter((item) => !item.category.includes('chats'))
           .map((item, key) => (
             <Rail.Item key={key + item?.id}>
               <CardBasic name={item?.name} price={item?.price} />
             </Rail.Item>
           ))}
       </Rail>
-      <h3 className={clsx('pad-gap', styles.railTitle)}>Chats</h3>
-      <Rail>
+      <Rail heading='Chats'>
         {(data || [])
           .filter((item) => item.category.includes('chats'))
           .map((item, key) => (
@@ -54,18 +60,7 @@ const View = () => {
             </Rail.Item>
           ))}
       </Rail>
-      <h3 className={clsx('pad-gap', styles.railTitle)}>Breakfast</h3>
-      <Rail>
-        {(data || [])
-          .filter((item) => item.category.includes('breakfast'))
-          .map((item, key) => (
-            <Rail.Item key={key + item.id}>
-              <CardBasic name={item?.name} price={item?.price} />
-            </Rail.Item>
-          ))}
-      </Rail>
-      <h3 className={clsx('pad-gap', styles.railTitle)}>Snacks</h3>
-      <Rail>
+      <Rail heading='Snacks'>
         {(data || [])
           .filter((item) => item.category.includes('snacks'))
           .map((item, key) => (

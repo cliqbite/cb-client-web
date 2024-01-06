@@ -62,6 +62,9 @@ export const Rail = ({ children, className, ...props }: TRail) => {
 
   return (
     <section className={cls(styles['rail--container'])}>
+      {props?.heading ? (
+        <h3 className={cls(styles.heading, 'pad-gap')}>{props.heading}</h3>
+      ) : null}
       <ul
         onScroll={onScroll}
         className={cls('pad-gap', styles['rail'], className)}

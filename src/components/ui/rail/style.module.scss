@@ -44,6 +44,11 @@
   &--container {
     position: relative;
 
+    .heading {
+      text-align: left;
+      margin-top: 1em;
+    }
+
     .chevron {
       display: none;
       @include pointer {
