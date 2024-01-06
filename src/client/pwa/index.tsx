@@ -1,9 +1,9 @@
 'use client'
+import { usePWA } from '@/client/hooks'
 import { type MouseEventHandler } from 'react'
-import { log } from '../../common/log'
-import { PWAPromtButton } from './components/button'
 import { PWAPromptBanner } from './components/banner'
-import { usePWA } from '@/client/hooks/usePWA'
+import { PWAPromtButton } from './components/button'
+import { PWALandingPage } from './components/landing-page'
 
 export type PWAPromptUI =
   | 'button'
@@ -30,6 +30,7 @@ export const PWAPrompt = ({ type = 'button' }: PWAPromptType) => {
 
   if (type === 'button') return <PWAPromtButton onClick={handleInstall} />
   if (type === 'banner') return <PWAPromptBanner onClick={handleInstall} />
+  if (type === 'landing-page') return <PWALandingPage onClick={handleInstall} />
 
   return <></>
 }

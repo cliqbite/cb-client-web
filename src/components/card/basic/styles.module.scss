@@ -3,7 +3,6 @@
   max-height: 10em;
   height: 100%;
   width: 100%;
-  margin: 1em;
 
   display: grid;
   grid-template-columns: 16em;
@@ -15,8 +14,8 @@
     rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
     rgba(27, 31, 35, 0.15) 0px 0px 0px 1px,
     rgba(17, 17, 26, 0.1) 0px 4px 16px,
-    rgba(17, 17, 26, 0.1) 0px 8px 24px,
-    rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    rgba(17, 17, 26, 0.1) 0px 8px 24px;
+
   .img {
     object-fit: cover;
     object-position: center;

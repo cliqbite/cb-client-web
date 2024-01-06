@@ -13,7 +13,8 @@ const env = {
     colleges: process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_COLLEGES_ID!,
     food: process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_FOOD_ID!,
     consumer: process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_CONSUMER_ID!,
-    cart: process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_CART_ID!
+    cart: process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_CART_ID!,
+    category: process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_CATEGORIES_ID!
   },
   appwriteBucketId: process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID!,
   // analytics

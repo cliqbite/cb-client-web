@@ -5,6 +5,12 @@ import { useEventListener } from './useEventListener'
 
 type Handler = (event: MouseEvent) => void
 
+/**
+ *
+ * @param ref ref of subject
+ * @param handler callback
+ * @param mouseEvent mouse event
+ */
 export function useOnClickOutside<T extends HTMLElement = HTMLElement>(
   ref: RefObject<T>,
   handler: Handler,

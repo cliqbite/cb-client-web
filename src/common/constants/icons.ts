@@ -14,5 +14,6 @@ export const ICON = {
   MENU: 'menu',
   KEBAB: 'kebab',
   USER: 'user',
-  FORWARD: 'forward'
+  FORWARD: 'forward',
+  BINOCULAR: 'binoculars'
 } as const

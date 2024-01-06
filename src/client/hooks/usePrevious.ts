@@ -1,6 +1,7 @@
-import { useRef, useEffect } from 'react'
+'use client'
+import { useEffect, useRef } from 'react'
 
-function usePrevious<T>(value?: T) {
+export function usePrevious<T>(value?: T) {
   const ref = useRef<T>()
 
   // Store current value in ref

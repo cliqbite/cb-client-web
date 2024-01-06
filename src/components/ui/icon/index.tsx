@@ -1,6 +1,7 @@
 import { ICON } from '@/common/constants/icons'
 import { type FC, type ReactNode, type SVGAttributes } from 'react'
 import { AiOutlineFileUnknown } from 'react-icons/ai'
+import { BiSolidBinoculars } from 'react-icons/bi'
 import { CiLogout, CiMenuKebab } from 'react-icons/ci'
 import { FaCartShopping, FaLocationDot, FaUser } from 'react-icons/fa6'
 import { FcGoogle } from 'react-icons/fc'
@@ -39,7 +40,8 @@ const _icons: Array<[string, IconType]> = [
   [ICON.LOCATION, FaLocationDot],
   [ICON.MENU, HiMenu],
   [ICON.KEBAB, CiMenuKebab],
-  [ICON.USER, FiUser]
+  [ICON.USER, FiUser],
+  [ICON.BINOCULAR, BiSolidBinoculars]
 ]
 
 export const Icon: FC<IconType> = (props) => {

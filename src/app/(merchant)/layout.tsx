@@ -1,5 +1,5 @@
+import { Layout } from '@/client/container/provider'
 import Navigation from '@/components/Navigation/merchant'
-import Layout from '@/components/template'
 import '@/styles/common.scss'
 import '@/styles/globals.scss'
 

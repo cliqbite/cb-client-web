@@ -1,9 +1,9 @@
-import type { FC } from 'react'
-import styles from './styles.module.scss'
-import Image from 'next/image'
-import { cls } from '@/common/utils/classnames'
 import fallback16x9 from '@/assets/png/fallback16x9.png'
 import PurseSVGR from '@/assets/svg/tsx/purse'
+import { cls } from '@/common/utils/classnames'
+import Image from '@/components/ui/image'
+import type { FC } from 'react'
+import styles from './styles.module.scss'
 
 interface CardBasicProps {
   offer?: string
@@ -11,11 +11,19 @@ interface CardBasicProps {
   desc?: string
   src?: string
   price: string | number
+  className?: string
 }
 
-const CardBasic: FC<CardBasicProps> = ({ offer, name, price, desc, src }) => {
+const CardBasic: FC<CardBasicProps> = ({
+  offer,
+  name,
+  price,
+  desc,
+  src,
+  className
+}) => {
   return (
-    <div className={styles.card}>
+    <div className={cls(className, styles.card)}>
       <section className={cls(styles['img-container'])}>
         <Image
           alt={name}

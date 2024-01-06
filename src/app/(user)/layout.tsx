@@ -1,7 +1,7 @@
-import '@/styles/globals.scss'
-import '@/styles/common.scss'
+import { Layout } from '@/client/container/provider'
 import Navigation from '@/components/Navigation'
-import Layout from '@/components/template'
+import '@/styles/common.scss'
+import '@/styles/globals.scss'
 
 export default function UserLayout({
   children

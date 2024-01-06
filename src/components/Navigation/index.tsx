@@ -32,10 +32,10 @@ const B_NAV = [
     icon: ICON.ABOUT,
     href: '/profile'
   }
-]
+] as const
 
 interface NavigationProps {
-  active?: 'home' | 'about' | 'cart' | 'search'
+  active?: (typeof B_NAV)[number]['id']
 }
 
 // Regular expression to split the pathname by "/"

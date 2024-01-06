@@ -1,0 +1,114 @@
+@use 'src/styles/variables' as var;
+
+.modal {
+  $animation-timer: 0.25s;
+
+  &-dialog {
+    position: relative;
+    padding: 1rem;
+    border: 0;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.5rem 0.25rem hsl(0 0% 0% / 10%);
+    margin: auto;
+
+    &[open] {
+      opacity: 1;
+      transform: scale(1);
+      translate: 0 0;
+    }
+
+    opacity: 0;
+    transform: scale(0.8);
+    transform-origin: bottom;
+
+    /* Transition the :backdrop when the dialog modal is promoted to the top layer */
+    &::backdrop {
+      background-color: rgb(0 0 0 / 0);
+    }
+
+    &[open]::backdrop {
+      background-color: hwb(0 0% 100% / 0.5);
+    }
+  }
+
+  &-custom {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: var.$z-modal;
+    background-color: hwb(0 0% 100% / 0.5);
+    isolation: isolate;
+
+    display: grid;
+    place-items: center;
+
+    &-container {
+      background-color: white;
+      position: relative;
+      padding: 1rem;
+      border: 0;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 0.5rem 0.25rem hsl(0 0% 0% / 10%);
+      margin: auto;
+
+      &[data-open='true'] {
+        opacity: 1;
+        transform: scale(1);
+        translate: 0 0;
+      }
+    }
+
+    &[data-open='false'] {
+      display: none;
+    }
+  }
+
+  &-dialog,
+  &::backdrop,
+  &-custom,
+  &-custom-container {
+    transition:
+      opacity $animation-timer ease-out,
+      transform $animation-timer ease-out,
+      overlay $animation-timer ease-out allow-discrete,
+      display $animation-timer ease-out allow-discrete;
+    /* Equivalent to
+  transition: all 0.7s allow-discrete; */
+  }
+
+  &-dialog,
+  &-custom {
+    /* This starting-style rule cannot be nested inside the above selector
+  because the nesting selector cannot represent pseudo-elements. */
+    @starting-style {
+      &[open]::backdrop,
+      &[data-open='false'] {
+        background-color: rgb(0 0 0 / 0);
+      }
+    }
+  }
+
+  &-dialog,
+  &-custom-container {
+    /*   Before-open state  */
+    /* Needs to be after the previous dialog[open] rule to take effect,
+    as the specificity is the same */
+    @starting-style {
+      &[open],
+      &[data-open='true'] {
+        opacity: 0;
+        transform: scale(0.8);
+        translate: 0 3em;
+      }
+    }
+  }
+
+  &--blur {
+    &[open]::backdrop,
+    &[data-open='true'] {
+      backdrop-filter: blur(1em);
+    }
+  }
+}

@@ -1,15 +1,12 @@
-import '@/styles/globals.scss'
-import '@/styles/common.scss'
-import type { Metadata } from 'next'
-// import { Viewport } from 'next'
+import { TanstackQueryClient } from '@/client/container/provider'
+import PWAPrompt from '@/client/pwa'
 import GoogleAnalytics from '@/client/services/analytics/GoogleAnalytics'
 import { cls } from '@/common/utils/classnames'
-import { siteConfig } from '@/configs/site'
 import { fontSans } from '@/configs/fonts'
-import PWAPrompt from '@/client/pwa'
-import Navigation from '@/components/Navigation'
-import { Providers } from './providers'
-import Layout from '@/components/template'
+import { siteConfig } from '@/configs/site'
+import '@/styles/common.scss'
+import '@/styles/globals.scss'
+import type { Metadata, Viewport } from 'next'
 
 export const metadata: Metadata = {
   title: {
@@ -25,7 +22,7 @@ export const metadata: Metadata = {
   }
 }
 
-export const viewport = {
+export const viewport: Viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: 'white' },
     { media: '(prefers-color-scheme: dark)', color: 'black' }
@@ -40,14 +37,9 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={cls(fontSans.className)} suppressHydrationWarning={true}>
-        <GoogleAnalytics />
-        <Providers>
-          <Layout>
-            {children}
-            <Navigation />
-          </Layout>
-        </Providers>
+        <TanstackQueryClient>{children}</TanstackQueryClient>
         <PWAPrompt type='initiate' />
+        <GoogleAnalytics />
       </body>
     </html>
   )

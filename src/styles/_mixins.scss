@@ -1,0 +1,80 @@
+/* non-touch devices */
+@mixin pointer {
+  @media (pointer: fine) {
+    @content;
+  }
+}
+
+/* touch devices */
+@mixin touch {
+  @media (pointer: coarse) {
+    @content;
+  }
+}
+
+/* Enable hover only on non-touch devices */
+@mixin hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+/* Styles to apply when motion is reduced */
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: no-preference) {
+    @content;
+  }
+}
+
+@mixin scrollbar {
+  @include pointer {
+    &::-webkit-scrollbar {
+      display: block;
+      width: 6px;
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 0.5em rgba(0, 0, 0, 0.2);
+      border-radius: 1em;
+      background-color: #f5f5f588;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 1em;
+      -webkit-box-shadow: inset 0 0 0.5em rgba(0, 0, 0, 0.2);
+      background-color: #bbbbbb;
+    }
+  }
+}
+
+@mixin sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+// Use in conjunction with .sr-only to only display content when it's focused.
+//
+// Useful for "Skip to main content" links; see http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
+//
+// Credit: HTML5 Boilerplate
+
+@mixin sr-only-focusable {
+  &:active,
+  &:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+  }
+}
