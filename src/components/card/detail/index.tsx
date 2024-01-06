@@ -9,7 +9,7 @@ export const CardDetail: FC<TDetail> = ({ ...props }) => {
   return (
     <div className={styles['detail']} {...props}>
       <div className={styles['img-container']}>
-        <Image alt='' src={''} className={styles.img} />
+        <Image alt='' src={props.src ?? ''} className={styles.img} />
       </div>
       <div className={cls(styles.info)}>
         <h3 className={cls(styles.name)}>{props?.name}</h3>
