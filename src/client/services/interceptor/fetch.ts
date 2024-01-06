@@ -14,7 +14,6 @@ export const customFetch = async (
   const headers = {
     ...options.headers,
     // Add your custom headers here
-    Authorization: 'Bearer YourAccessToken',
     ...nextApiHeader
   }
 
