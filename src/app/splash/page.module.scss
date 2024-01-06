@@ -1,0 +1,32 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: #e60023;
+  background-image: linear-gradient(180deg, #fa6800 0%, #e60023 100%);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.logo {
+  position: relative;
+  border-radius: 1em;
+  width: 6em;
+  height: 6em;
+
+  &__title {
+    color: aliceblue;
+    font-size: 2em;
+  }
+}
+
+@media (prefers-reduced-motion) {
+}

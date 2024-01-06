@@ -1,0 +1,40 @@
+.about {
+  margin-block: 1em;
+  header {
+    display: flex;
+    gap: 0.5em;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-block: 1em;
+  }
+
+  article,
+  p,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin-block: 1em;
+  }
+
+  p[data-mod]::first-letter {
+    color: var(--primary);
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  [data-vision] {
+    display: flex;
+    gap: 0.25em;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  p[data-justify] {
+    text-align: justify;
+    text-justify: inter-word;
+    word-wrap: break-word;
+    text-wrap: balance;
+    text-wrap: pretty;
+  }
+}

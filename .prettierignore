@@ -13,3 +13,5 @@ additional.d.ts
 *.lock
 *.log
 *yaml
+
+plop-templates/*

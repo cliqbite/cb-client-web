@@ -1,0 +1,12 @@
+.page {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  min-height: 80dvh;
+  min-height: 80svh;
+  .logo {
+    margin: 2em;
+  }
+}

@@ -1,0 +1,51 @@
+.page {
+  padding-inline: 0.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.header {
+  text-align: left;
+  margin-top: 2em;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+
+  p {
+    font-size: 1.125em;
+  }
+}
+
+.timer {
+  font-size: 0.8em;
+  em {
+    font-weight: 500;
+  }
+}
+
+.resend {
+  font-size: 1em;
+  strong {
+    color: orangered;
+  }
+}
+
+.otp {
+  &-container {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    margin-block: 1em;
+  }
+  &-input {
+    width: 2.5em !important;
+    height: 2.5em;
+    font-size: 1.5em;
+    text-align: center;
+  }
+}

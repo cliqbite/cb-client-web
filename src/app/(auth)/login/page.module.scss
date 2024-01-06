@@ -1,0 +1,46 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 2em;
+  height: 95vh;
+  height: 95dvh;
+  padding-inline: 1em;
+}
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+
+  .logo {
+    justify-self: center;
+    align-self: center;
+    margin-bottom: 3em;
+  }
+}
+.login-cta {
+  width: 100%;
+  bottom: 0;
+
+  .cta {
+    width: 100%;
+  }
+
+  .btn {
+    font-size: 1em;
+    &.google {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25em;
+    }
+  }
+
+  .orLabel {
+    display: block;
+    text-align: center;
+    margin-inline: auto;
+    padding-block: 1em;
+  }
+}

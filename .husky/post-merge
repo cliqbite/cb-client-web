@@ -4,7 +4,7 @@
 # retrieves the list of files that have changed 
 changed_files="$(git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD)"
 
-scan_lockfile () {
+scan_lockfile() {
   echo "🕵️📦 Checking package file changes..."
   if [ -n "$changed_files" ]; then
      if [ -n "$(echo "$changed_files" | grep -E 'yarn\.lock|package-lock\.json|pnpm-lock\.yaml|bun\.lockb')" ]; then
@@ -15,6 +15,7 @@ scan_lockfile () {
       pnpm install
       # bun install
       exit 0
+      fi
   fi
 }
   

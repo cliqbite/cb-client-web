@@ -1,0 +1,29 @@
+.search {
+  $offeset: 0em;
+  width: calc(100% - $offeset) !important;
+
+  &-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &-btn {
+    margin-block: 1.125em 1.5em;
+    height: 3.33em;
+  }
+
+  &.wrapper {
+    top: 1em;
+    position: sticky;
+  }
+}
+
+.recomendation {
+  &-wrapper {
+  }
+}
+
+.result {
+  &-wrapper {
+  }
+}

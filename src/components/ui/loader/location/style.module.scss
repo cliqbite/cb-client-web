@@ -1,0 +1,60 @@
+.loader-location {
+  --size: 3em;
+  --__translate: calc(var(--size, 48px) * 0.1041666667);
+  --__translateN: calc(var(--__translate) * -1);
+
+  width: var(--size, 48px);
+  height: var(--size, 48px);
+
+  display: block;
+  box-sizing: border-box;
+  position: relative;
+  &::after {
+    content: '';
+    box-sizing: border-box;
+    width: var(--size, 48px);
+    height: var(--size, 48px);
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    border-radius: 50% 50% 0;
+    border: calc(var(--size, 48px) / 3) solid var(--loader-color, #fff);
+    transform: rotate(45deg) translate(0, 0);
+    box-sizing: border-box;
+    animation: animMarker 0.4s ease-in-out infinite alternate;
+  }
+  &::before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 150%;
+    width: calc(var(--size, 24px) / 2);
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2);
+    animation: animShadow 0.4s ease-in-out infinite alternate;
+  }
+
+  @keyframes animMarker {
+    0% {
+      transform: rotate(45deg)
+        translate(var(--__translate, 5px), var(--__translate, 5px));
+    }
+    100% {
+      transform: rotate(45deg)
+        translate(var(--__translateN, -5px), var(--__translateN, -5px));
+    }
+  }
+
+  @keyframes animShadow {
+    0% {
+      transform: scale(0.5);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}

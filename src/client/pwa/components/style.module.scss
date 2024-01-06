@@ -1,0 +1,49 @@
+.toast {
+  background-color: white;
+  border-radius: 0.5em;
+  padding: 0.75em;
+
+  position: fixed;
+  z-index: 99;
+
+  top: 1em;
+  right: 0.5em;
+  animation: slideIn 2s cubic-bezier(0, 1.18, 0.4, 1.06) 0s 1 normal none;
+
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+.btn {
+  display: flex;
+  place-items: center;
+  gap: 0.5em;
+
+  .svg {
+    width: 1em;
+    height: 1em;
+    transform: rotate(90deg);
+  }
+}
+.landing-page {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-block: 1em;
+  gap: 1em;
+  flex-wrap: nowrap;
+
+  .btn {
+    color: var(--primary);
+    background-color: transparent;
+    border: 0.125em solid rgb(201, 194, 189);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(18em);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}

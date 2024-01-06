@@ -1,0 +1,20 @@
+.promotion {
+  max-height: 12em;
+
+  &__slide {
+    width: 100%;
+  }
+
+  &__image {
+    object-position: center;
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
+    border-radius: 0.5em;
+    background-color: transparent;
+    object-fit: cover;
+    margin-inline: auto;
+    width: 86vw;
+    max-width: 21.375em;
+    height: auto;
+  }
+}

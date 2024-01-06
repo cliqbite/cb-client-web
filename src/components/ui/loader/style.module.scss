@@ -1,0 +1,10 @@
+.page {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  position: relative;
+}
+
+.clr {
+  --loader-color: var(--primary, orange);
+}

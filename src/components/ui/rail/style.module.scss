@@ -1,0 +1,98 @@
+@use 'src/styles/mixins.scss' as *;
+
+.rail {
+  list-style: none;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: auto;
+  gap: 0.75em;
+  padding-block: 1em;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 2em;
+
+  /* Enable Safari touch scrolling physics which is needed for scroll snap */
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  li {
+    scroll-snap-align: center;
+    scroll-snap-stop: normal;
+    flex-shrink: 0;
+
+    @include reduced-motion {
+      animation: scale-in linear forwards;
+      animation-timeline: view(inline);
+      animation-range: 0% 10%;
+      scale: 0.8;
+      opacity: 0.9;
+    }
+  }
+
+  @keyframes scale-in {
+    to {
+      scale: 1;
+      opacity: 1;
+    }
+  }
+
+  &--container {
+    position: relative;
+
+    .heading {
+      text-align: left;
+      margin-top: 1em;
+    }
+
+    .chevron {
+      display: none;
+      @include pointer {
+        all: unset;
+        color: rgba(153, 153, 153, 0.8);
+        background-image: linear-gradient(to left, #00000030, transparent);
+
+        transition: all 0.2s ease-in;
+        @include hover {
+          width: 2.3em;
+          background-image: linear-gradient(
+            to left,
+            rgba(0, 0, 0, 0.3),
+            transparent
+          );
+        }
+
+        position: absolute;
+        top: 50%;
+        translate: 0 -50%;
+        width: 2em;
+        height: 86%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        right: 0;
+        cursor: pointer;
+
+        .icon {
+          height: 2em;
+          width: auto;
+        }
+
+        &:disabled {
+          opacity: 0;
+          visibility: hidden;
+          user-select: none;
+        }
+        &--left {
+          left: 0;
+          rotate: 180deg;
+        }
+      }
+    }
+  }
+}
