@@ -9,5 +9,9 @@ export const ROUTE = {
   HOME: '/home',
 
   MERCHANT: '/merchant',
-  COLLEGE: '/college'
+  COLLEGE: '/college',
+
+  ABOUT: '/about',
+  ABOUT_CUSTOMER: '/about/customer',
+  ABOUT_MERCHANT: '/about/merchant'
 }
