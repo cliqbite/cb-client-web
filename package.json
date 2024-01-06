@@ -1,6 +1,6 @@
 {
   "name": "cb-kosha-client-web",
-  "version": "0.1.0",
+  "version": "0.1.1-alpha.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -16,7 +16,8 @@
     "serve": "rimraf .next && next build && next start",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "generate": "plop"
+    "generate": "plop",
+    "release": "standard-version"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
