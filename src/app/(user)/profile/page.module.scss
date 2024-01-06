@@ -4,14 +4,34 @@
 
 .settings {
   display: grid;
-  grid-template-rows: 1fr;
-  gap: 0.5em;
-  margin-block: 1em;
+  grid-template-rows: 1fr 3fr 0.5fr;
+
   height: 100%;
+  gap: 0.5em;
+  height: 100%;
+
+  &--content {
+    padding-inline: 1em;
+    list-style: none;
+  }
+
+  &--footer {
+    display: flex;
+    height: fit-content;
+    justify-content: space-between;
+    align-items: flex-end;
+    i {
+      color: rgb(165, 165, 165);
+      font-size: 0.7em;
+    }
+  }
 }
 
 .loader {
-  min-height: 50svh;
-  height: 100%;
-  margin: auto;
+  height: 90vh;
+  height: 90dvh;
+  height: 90svh;
+  display: grid;
+  place-items: center;
+  --loader-color: var(--primary, orangered);
 }

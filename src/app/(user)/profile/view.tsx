@@ -1,11 +1,15 @@
 'use client'
 
-import { cls } from '@/common/utils/classnames'
-import styles from './page.module.scss'
-import { useRouter } from 'next/navigation'
-import { ROUTE } from '@/common/constants/route'
 import useAuth from '@/client/hooks/useAuth'
+import { ROUTE } from '@/common/constants/route'
+import { cls } from '@/common/utils/classnames'
+import { getPackageVersion } from '@/common/utils/version'
+import LogoutButton from '@/components/Logout'
+import ProfileDetail from '@/components/profile'
 import Loader from '@/components/ui/loader'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import styles from './page.module.scss'
 
 export default function View() {
   const router = useRouter()
@@ -16,19 +20,26 @@ export default function View() {
     router.push(ROUTE.LOGIN)
   }
 
+  if (isLoading) {
+    return (
+      <Loader className={styles.loader}>
+        <Loader.Avatar />
+      </Loader>
+    )
+  }
+
   return (
     <section className={cls(styles.settings)}>
-      {isLoading ? (
-        <Loader className={styles.loader}>
-          <Loader.Dot />
-          <label>Loading...</label>
-        </Loader>
-      ) : (
-        <ul>
-          <li>Update College</li>
-          <li>Birth date</li>
-        </ul>
-      )}
+      <ProfileDetail />
+      <ul className={styles['settings--content']}>
+        <li>
+          <Link href={ROUTE.ABOUT}>About Us</Link>
+        </li>
+      </ul>
+      <div className={styles['settings--footer']}>
+        <LogoutButton />
+        <i>Application: v{getPackageVersion()}</i>
+      </div>
     </section>
   )
 }

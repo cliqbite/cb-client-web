@@ -1,6 +1,7 @@
 import logoPng from '@/assets/png/logo.png'
 import { ROUTE } from '@/common/constants/route'
 import { cls } from '@/common/utils/classnames'
+import Navigation from '@/components/Navigation'
 import Button from '@/components/ui/button'
 import Icon from '@/components/ui/icon'
 import Image from 'next/image'
@@ -68,6 +69,7 @@ export default function About() {
       >
         <Button btn='outline'>Read More</Button>
       </Link>
+      <Navigation active='profile' />
     </main>
   )
 }
