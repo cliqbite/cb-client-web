@@ -1,5 +1,12 @@
 @use './variables.scss' as var;
 
+@media (prefers-reduced-motion: no-preference) {
+  html,
+  :has(:target) {
+    scroll-behavior: smooth;
+  }
+}
+
 .page {
   padding: var.$page-padding;
   margin-inline: auto;

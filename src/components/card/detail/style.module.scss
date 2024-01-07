@@ -1,21 +1,20 @@
 .detail {
   display: grid;
-  grid-template-columns: 1fr 1.5fr 1em;
+  grid-template-columns: 1fr 1.33fr 1em;
   height: 10em;
   border: 1px solid #e5e5e5;
-  width: calc(100vw - 2em);
+  width: calc(100% - 1em);
   border-radius: 1em;
   margin-inline: auto;
   margin-block: 1em;
   overflow: hidden;
   gap: 0.25em;
-
   .img {
     height: 100%;
     width: 100%;
 
     &-container {
-      width: 8em;
+      height: 10em;
     }
   }
 

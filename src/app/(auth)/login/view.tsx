@@ -56,7 +56,7 @@ const View: FC<ViewProps> = ({}) => {
   }
 
   const gAuthHandle = async () => {
-    const successURL = `${window?.location.origin}${ROUTE.COLLEGE}`,
+    const successURL = `${window?.location.origin}${ROUTE.HOME}`,
       failurURL = `${window?.location?.origin}${ROUTE.LOGIN}`
 
     await authService.gOAuthLogin(successURL, failurURL)
