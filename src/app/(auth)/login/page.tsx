@@ -1,10 +1,10 @@
-import type { FC } from 'react'
-import View from './view'
-import styles from './page.module.scss'
-import { cls } from '@/common/utils/classnames'
-import Image from 'next/image'
 import logoPNG from '@/assets/png/logo.png'
 import PWAPrompt from '@/client/pwa'
+import { cls } from '@/common/utils/classnames'
+import Image from 'next/image'
+import type { FC } from 'react'
+import styles from './page.module.scss'
+import View from './view'
 
 interface PageProps {}
 
@@ -18,7 +18,6 @@ const Login: FC<PageProps> = ({}) => {
           alt={'logo'}
           width={100}
           height={100}
-          objectFit='contain'
           className={styles.logo}
         />
         <h1>Welcome to CliqBite</h1>

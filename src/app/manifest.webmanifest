@@ -1,7 +1,7 @@
 {
   "theme_color": "#C51F2C",
   "background_color": "#C51F2C",
-  "display_override": ["fullscreen", "standalone"],
+  "display_override": ["standalone"],
   "display": "standalone",
   "scope": "/",
   "id": "/?source=pwa",
