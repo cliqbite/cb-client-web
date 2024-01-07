@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.1](https://github.com/cliqbite/cb-client-web/compare/v0.1.1-alpha.0...v0.1.1) (2024-01-07)
+
+### Others
+
+- **release:** 0.1.1-alpha.0 ([#32](https://github.com/cliqbite/cb-client-web/issues/32)) ([e771526](https://github.com/cliqbite/cb-client-web/commit/e7715267867abb80ceb3ee7bb553ae2b85eba260))
+
+### Styling
+
+- update page style ([748639f](https://github.com/cliqbite/cb-client-web/commit/748639f8e7fe0c4fbba75fef2c2aed96a5bc58df))
+
 ### 0.1.1-alpha.0 (2024-01-06)
 
 ### Features
