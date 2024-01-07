@@ -6,6 +6,8 @@ import { fontSans } from '@/configs/fonts'
 import { siteConfig } from '@/configs/site'
 import '@/styles/common.scss'
 import '@/styles/globals.scss'
+import { Analytics as VercelAnalytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata, Viewport } from 'next'
 
 export const metadata: Metadata = {
@@ -40,6 +42,8 @@ export default function RootLayout({
         <TanstackQueryClient>{children}</TanstackQueryClient>
         <PWAPrompt type='initiate' />
         <GoogleAnalytics />
+        <SpeedInsights />
+        <VercelAnalytics />
       </body>
     </html>
   )
